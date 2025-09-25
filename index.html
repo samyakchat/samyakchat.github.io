@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samyak Chatterjee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #38b6ff;
+      --secondary: #1e1e2f;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #333333;
+      --light-gray: #bbbbbb;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #111111, #1a1a1a);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gray); /* back to light gray */
+      border-radius: 15px;
+    }
+
+    .navbar-left a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .navbar-left a:hover {
+      color: var(--primary);
+    }
+
+    .navbar-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid var(--light-gray); /* back to light gray */
+      border-radius: 15px;
+      padding: 12px 20px;
+      background: rgba(30,30,40,0.6);
+      color: var(--white);
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-btn.selected {
+      background: var(--primary);
+      color: var(--black);
+      border-color: var(--primary);
+    }
+
+    .nav-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transition: left 0.13s ease; /* faster fill */
+      z-index: 0;
+    }
+
+    .nav-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.1);
+      border-color: var(--primary);
+    }
+
+    .nav-btn.active::before {
+      left: 0;
+    }
+
+    /* Main content */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 60px;
+      align-items: center;
+      gap: 50px;
+      box-sizing: border-box;
+    }
+    .text {
+      flex: 1 1 400px;
+    }
+    .text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.2rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      color: var(--white);
+    }
+    .text p {
+      font-size: 1.3rem;
+      line-height: 2rem;
+      opacity: 0.85;
+      color: var(--light-gray);
+    }
+
+    /* Carousel */
+    .carousel {
+      flex: 1 1 400px;
+      position: relative;
+      height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--gray); /* back to light gray */
+      overflow: hidden;
+    }
+    .img-box {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 1s ease;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    }
+    .center {
+      transform: translateY(-40px) scale(1.2);
+      opacity: 1;
+      z-index: 3;
+    }
+    .bottom-left {
+      transform: translateX(-180px) translateY(120px) scale(0.9) rotate(-10deg);
+      opacity: 0.5;
+      z-index: 2;
+    }
+    .bottom-right {
+      transform: translateX(180px) translateY(120px) scale(0.9) rotate(10deg);
+      opacity: 0.5;
+      z-index: 2;
+    }
+    .semi-left-1 {
+      transform: translateX(-220px) translateY(40px) scale(0.6) rotate(-90deg);
+      opacity: 0.3;
+      z-index: 1;
+    }
+    .semi-left-2 {
+      transform: translateX(-150px) translateY(70px) scale(0.65) rotate(-60deg);
+      opacity: 0.4;
+      z-index: 1;
+    }
+    .semi-left-3 {
+      transform: translateX(-80px) translateY(90px) scale(0.7) rotate(-30deg);
+      opacity: 0.5;
+      z-index: 2;
+    }
+    .semi-right-1 {
+      transform: translateX(220px) translateY(40px) scale(0.6) rotate(90deg);
+      opacity: 0.3;
+      z-index: 1;
+    }
+    .semi-right-2 {
+      transform: translateX(150px) translateY(70px) scale(0.65) rotate(60deg);
+      opacity: 0.4;
+      z-index: 1;
+    }
+    .semi-right-3 {
+      transform: translateX(80px) translateY(90px) scale(0.7) rotate(30deg);
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    /* Contact */
+    .contact {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px 30px;
+      background: rgba(20,20,30,0.8);
+      border-top: 2px solid var(--primary);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 3px;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      color: var(--light-gray);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: help;
+    }
+    .contact .contact-item:hover {
+      opacity: 1;
+    }
+    .contact img {
+      width: 22px;
+      height: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">Samyak Chatterjee</a>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-btn selected" onclick="clickNav(this, 'index.html')"><span>Home</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'userint.html')"><span>User Interfaces</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'project.html')"><span>Projects</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'about.html')"><span>About</span></button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="text">
+      <h1>Hello, I'm Samyak</h1>
+      <p>
+        I am a 15 year old developer and designer utilizing all sorts of programs to make elaborate coding projects and creative interfaces.
+        <br>I specialize in Python with knowledge in HTML, CSS, and Javascript. 
+        I create all UI by hand in Adobe Illustrator and wireframes in Figma. 
+        I am currently on a path to learn Swift, and the design tool Blender.<br>
+      </p>
+    </div>
+    <div class="carousel">
+      <div class="img-box center"><img src="images/premire.png" width="150" height="150"></div>
+      <div class="img-box semi-left-3"><img src="images/illustrator.png" width="150" height="150"></div>
+      <div class="img-box semi-left-2"><img src="images/figma.png" width="150" height="150"></div>
+      <div class="img-box semi-left-1"><img src="images/python.png" width="150" height="150"></div>
+      <div class="img-box semi-right-1"><img src="images/html.png" width="150" height="150"></div>
+      <div class="img-box semi-right-2"><img src="images/css.png" width="150" height="150"></div>
+      <div class="img-box semi-right-3"><img src="images/javascript.png" width="150" height="150"></div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact">
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+      <span><a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      <span><a href="https://www.instagram.com/samyakchat/">@samyakchat</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span><a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a></span>
+    </div>
+  </div>
+
+  <script>
+    // Navbar click effect
+    function clickNav(btn, url) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setTimeout(() => { window.location.href = url; }, 200);
+    }
+
+    // Carousel auto-rotation
+    const boxes = document.querySelectorAll('.img-box');
+    let positions = ['center', 'semi-left-3', 'semi-left-2', 'semi-left-1', 'semi-right-1', 'semi-right-2', 'semi-right-3'];
+
+    function rotateCarousel() {
+      positions.unshift(positions.pop());
+      boxes.forEach((box, i) => {
+        box.className = 'img-box ' + positions[i];
+      });
+    }
+    setInterval(rotateCarousel, 2000);
+  </script>
+
+</body>
+</html>

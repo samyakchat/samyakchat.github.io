@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samyak Chatterjee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #38b6ff;
+      --secondary: #1e1e2f;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #333333;
+      --light-gray: #bbbbbb;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #111111, #1a1a1a);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+    }
+
+    .navbar-left a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .navbar-left a:hover {
+      color: var(--primary);
+    }
+
+    .navbar-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid var(--light-gray);
+      border-radius: 15px;
+      padding: 12px 20px;
+      background: rgba(30,30,40,0.6);
+      color: var(--white);
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-btn.selected {
+      background: var(--primary);
+      color: var(--black);
+      border-color: var(--primary);
+    }
+
+    .nav-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transition: left 0.13s ease;
+      z-index: 0;
+    }
+
+    .nav-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.1);
+      border-color: var(--primary);
+    }
+
+    .nav-btn.active::before {
+      left: 0;
+    }
+
+    /* Main content */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 60px;
+      align-items: flex-start;
+      gap: 50px;
+      box-sizing: border-box;
+    }
+
+    .text {
+      flex: 1 1 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.2rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      color: var(--white);
+    }
+    .text p {
+      font-size: 1.3rem;
+      line-height: 2rem;
+      opacity: 0.85;
+      color: var(--light-gray);
+    }
+
+    /* Gallery */
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: 350px;
+      background: rgba(20, 20, 30, 0.6);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      cursor: pointer; /* Add a pointer cursor to show it's clickable */
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-description {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .gallery-description h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .gallery-description p {
+      font-size: 0.9rem;
+      color: var(--light-gray);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* The Modal (Pop-up) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 100; /* Sit on top */
+      padding-top: 50px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      backdrop-filter: blur(5px);
+    }
+
+    /* Modal Content (Image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 900px;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    /* Add Animation */
+    @keyframes zoom {
+      from {transform:scale(0)}
+      to {transform:scale(1)}
+    }
+
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: var(--white);
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: var(--primary);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Contact */
+    .contact {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px 30px;
+      background: rgba(20,20,30,0.8);
+      border-top: 2px solid var(--primary);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 3px;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      color: var(--light-gray);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: help;
+    }
+    .contact .contact-item:hover {
+      opacity: 1;
+    }
+    .contact img {
+      width: 22px;
+      height: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">Samyak Chatterjee</a>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-btn" onclick="clickNav(this, 'index.html')"><span>Home</span></button>
+      <button class="nav-btn selected" onclick="clickNav(this, 'userint.html')"><span>User Interfaces</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'project.html')"><span>Projects</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'about.html')"><span>About</span></button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="text">
+      <h1>UI Gallery</h1>
+      <p>These are some examples of UI I've made in projects. Click on the elements for a larger view.</p>
+    </div>
+
+    <div class="gallery-container">
+      <div class="gallery-item" onclick="showModal('images/home_screen.png')">
+        <img src="images/home_screen.png" alt="UI Design 1" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Homescreen</h3>
+          <p>This is a homescreen for a project I made, and it is all utilized for a 7" screen while being lightweight.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showModal('images/weather.png')">
+        <img src="images/weather.png" alt="UI Design 2" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Simplified Weather app</h3>
+          <p>This design is part of a bigger project, where I displayed essential weather information in the smallest form factor.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showModal('images/masterchef.png')">
+        <img src="images/masterchef.png" alt="UI Design 3" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Recipe finder</h3>
+          <p>A modern and sleek design that has a clear colorway of firebrick-red, light gray, and dark tones of gray. Part of a bigger project, this was made to fit on a small screen.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showModal('images/icons.png')">
+        <img src="images/icons.png" alt="UI Design 4" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Best Round Icons</h3>
+          <p>These are examples of the best minimalist icons from a bigger project I made, where these would be compressed down to 75x75 pixels, and would need to still show detail. .</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showModal('images/pkclogo.png')">
+        <img src="images/pkclogo.png" alt="UI Design 5" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Logo example</h3>
+          <p>A colorful and dynamic logo that matches the simplistic yet detailed look I made for a news project.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="showModal('images/3dlogos.png')">
+        <img src="images/3dlogos.png" alt="UI Design 6" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Example of 3D logos</h3>
+          <p>These are 3D logos made with shaders on Adobe illustrator, and while they look basic, they can be enhanced to take on the texture of metal, paper wood, etc. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+
+  <script>
+    // Navbar click effect
+    function clickNav(btn, url) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setTimeout(() => { window.location.href = url; }, 200);
+    }
+
+    // Get the modal and image
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    // Function to show the modal
+    function showModal(imageSrc) {
+      modal.style.display = 'block';
+      modalImg.src = imageSrc;
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+  </script>
+
+  <div class="contact">
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+      <span><a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      <span><a href="https://www.instagram.com/samyakchat/">@samyakchat</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span><a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a></span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Samyak Chatterjee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #38b6ff;
+      --secondary: #1e1e2f;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #333333;
+      --light-gray: #bbbbbb;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #111111, #1a1a1a);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+    }
+
+    .navbar-left a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .navbar-left a:hover { color: var(--primary); }
+
+    .navbar-right { display: flex; gap: 10px; }
+
+    .nav-btn {
+      border: 1px solid var(--light-gray);
+      border-radius: 15px;
+      padding: 12px 20px;
+      background: rgba(30,30,40,0.6);
+      color: var(--white);
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-btn.selected {
+      background: var(--primary);
+      color: var(--black);
+      border-color: var(--primary);
+    }
+    .nav-btn:hover { transform: scale(1.1); border-color: var(--primary); }
+
+    /* Section Container */
+    .project-section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .project-section h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    .project-section p {
+      font-size: 1.1rem;
+      color: var(--light-gray);
+      margin-bottom: 20px;
+    }
+    .github-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: var(--primary);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .github-link:hover { text-decoration: underline; }
+
+    /* Gallery */
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .gallery-item {
+      position: relative;
+      width: 550px;
+      background: rgba(20, 20, 30, 0.6);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+    .gallery-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-description {
+      padding: 15px;
+      text-align: center;
+    }
+    .gallery-description h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin: 0 0 8px;
+      color: var(--primary);
+    }
+    .gallery-description p {
+      font-size: 0.9rem;
+      color: var(--light-gray);
+    }
+
+    /* Contact */
+    .contact {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px 30px;
+      background: rgba(20,20,30,0.8);
+      border-top: 2px solid var(--primary);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      color: var(--light-gray);
+      text-decoration: none;
+    }
+    .contact .contact-item:hover { opacity: 1; }
+    .contact img { width: 22px; height: 22px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">Samyak Chatterjee</a>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-btn" onclick="window.location.href='index.html'"><span>Home</span></button>
+      <button class="nav-btn" onclick="window.location.href='userint.html'"><span>User Interfaces</span></button>
+      <button class="nav-btn selected" onclick="window.location.href='project.html'"><span>Projects</span></button>
+      <button class="nav-btn" onclick="window.location.href='about.html'"><span>About</span></button>
+    </div>
+  </div>
+
+  <!-- Projects Sections -->
+  <div id="project1" class="project-section">
+    <h1>LifeLine</h1>
+    <a href="https://github.com/samyakchat/LifeLine/" class="github-link" target="_blank">View on GitHub</a>
+    <p>A Python application that could be run anywhere. It's meant for the elderly population that needs assistance from a nurse or caretaker. At the chance a caretaker is away from the patient, the patient can call for the caretaker, call for a cast of nurses, or call for specific people. The defaults are Lady and Man, but can be customized to anybody.</p>
+    <div class="gallery-container">
+      <div class="gallery-item"><img src="images/alertss.png" class="gallery-image"><div class="gallery-description"><h3>Main UI</h3><p>The primary dashboard with 4 easy to read and tap buttons; Made for a touchscreen.</p></div></div>
+      <div class="gallery-item"><img src="images/numberss.png" class="gallery-image"><div class="gallery-description"><h3>Contacts</h3><p>You can contact up to 4 numbers with AlertAll.</p></div></div>
+      <div class="gallery-item"><img src="images/exmapleimage.png" class="gallery-image"><div class="gallery-description"><h3>In-Use</h3><p>This is it being used for my Grandma</p></div></div>
+      <div class="gallery-item"><img src="images/textmessage.png" class="gallery-image"><div class="gallery-description"><h3>Example Reciept</h3><p>Along with calling and alarms playing, here is an example text message </p></div></div>
+     
+    </div>
+  </div>
+
+  <div id="project2" class="project-section">
+    <h1>Kitchen-mate</h1>
+    <a href="https://github.com/samyakchat/KitchenMate/" class="github-link" target="_blank">View on GitHub</a>
+    <p>A small device that was made to help around the kitchen all with a touchscreen. Making a casserole? Find the best recipe based on any region through our MasterChef app, manage the ingredients with the PantryPal app, and time your dishes in the oven with Timer. If you are ever bored in the process, play Wordle, check the weather, or listen to music! </p>
+    <div class="gallery-container">
+      <div class="gallery-item"><img src="images/home_screen.png" class="gallery-image"><div class="gallery-description"><h3>Homescreen</h3><p>This is where the apps are held, inside the collapsable bar.  </p></div></div>
+      <div class="gallery-item"><img src="images/inusekitchen.jpeg" class="gallery-image"><div class="gallery-description"><h3>Example of use</h3><p>Currently in my kitchen, it's used everyday to make food.</p></div></div>
+      <div class="gallery-item"><img src="images/3Dmodels.png" class="gallery-image"><div class="gallery-description"><h3>3D-case model</h3><p>I made a case with the specific device in mind, including screen and ribbon cables that connect the computer together.</p></div></div>
+      <div class="gallery-item"><img src="images/masterchef.png" class="gallery-image"><div class="gallery-description"><h3>Recipe Finder app</h3><p>This is one of the revolutionary apps that holds over 115 Thousand recipies and menus.</p></div></div>
+    </div>
+  </div>
+
+  <div id="project3" class="project-section">
+    <h1>Money-Mate</h1>
+    <a href="https://github.com/samyakchat/Money-Mate/" class="github-link" target="_blank">View on GitHub</a>
+    <p>A tk-inter based app made for student spending. It tracks student spending and has advanced and basic features. To add transactions you can either manually fill in fields, or talk about your day. When you talk about your day the AI will then create transactions for you making your job easier. Some more basic features are filtered search, summary generator, and view filtered transactions.</p>
+    <div class="gallery-container">
+      <div class="gallery-item"><img src="images/homecropped.png" class="gallery-image"><div class="gallery-description"><h3>Basic UI</h3><p>This shows an intro screen that gets the jist of the modern UI through the app.</p></div></div>
+      <div class="gallery-item"><img src="images/profilecropped.png" class="gallery-image"><div class="gallery-description"><h3>Manage Profiles</h3><p>Manage up to 3 profiles all kept locally with SQL.</p></div></div>
+      <div class="gallery-item"><img src="images/tellus.png" class="gallery-image"><div class="gallery-description"><h3>AI integration</h3><p>This is our built-in AI that takes information about your day and automatically puts in your purchases and income</p></div></div>
+      <div class="gallery-item"><img src="images/chatbot.png" class="gallery-image"><div class="gallery-description"><h3>ChatBot</h3><p>This is a chatbot that answers any questions in any form u ask it</p></div></div>
+      <div class="gallery-item"><img src="images/moneyuibut.png" class="gallery-image"><div class="gallery-description"><h3>ButtonUI</h3><p>All handmade UI for buttons.</p></div></div>
+
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact">
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+      <span><a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      <span><a href="https://www.instagram.com/samyakchat/">@samyakchat</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span><a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a></span>
+    </div>
+  </div>
+</body>
+</html>

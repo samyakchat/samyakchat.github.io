@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samyak Chatterjee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #38b6ff;
+      --secondary: #1e1e2f;
+      --white: #ffffff;
+      --black: #111111;
+      --gray: #333333;
+      --light-gray: #bbbbbb;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #111111, #1a1a1a);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: rgba(20, 20, 30, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+    }
+
+    .navbar-left a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .navbar-left a:hover {
+      color: var(--primary);
+    }
+
+    .navbar-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid var(--light-gray);
+      border-radius: 15px;
+      padding: 12px 20px;
+      background: rgba(30,30,40,0.6);
+      color: var(--white);
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-btn.selected {
+      background: var(--primary);
+      color: var(--black);
+      border-color: var(--primary);
+    }
+
+    .nav-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transition: left 0.13s ease;
+      z-index: 0;
+    }
+
+    .nav-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.1);
+      border-color: var(--primary);
+    }
+
+    .nav-btn.active::before {
+      left: 0;
+    }
+
+    /* Main content */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 60px 20px;
+      box-sizing: border-box;
+      gap: 40px;
+    }
+
+    .text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      color: var(--white);
+    }
+
+    /* Skills pills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .skill-pill {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+      background: rgba(20,20,30,0.6);
+      backdrop-filter: blur(6px);
+    }
+    .skill-pill:hover {
+      background: var(--primary);
+      color: var(--black);
+      cursor: pointer;
+      transform: translateY(-3px);
+    }
+
+    /* Timeline */
+    .timeline {
+      width: 80%;
+      max-width: 800px;
+      background: rgba(20,20,30,0.6);
+      border: 1px solid var(--gray);
+      border-radius: 15px;
+      padding: 25px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .timeline h2 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+        .h3 {
+      
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color: var(--primary);
+    }
+    .timeline p {
+      font-size: 1rem;
+      line-height: 1.6rem;
+      color: var(--light-gray);
+      text-align: center;
+    }
+
+    /* Contact */
+    .contact {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px 30px;
+      background: rgba(20,20,30,0.8);
+      border-top: 2px solid var(--primary);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 3px;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      color: var(--light-gray);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: help;
+    }
+    .contact .contact-item:hover {
+      opacity: 1;
+    }
+    .contact img {
+      width: 22px;
+      height: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">Samyak Chatterjee</a>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-btn" onclick="clickNav(this, 'index.html')"><span>Home</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'userint.html')"><span>User Interfaces</span></button>
+      <button class="nav-btn" onclick="clickNav(this, 'project.html')"><span>Projects</span></button>
+      <button class="nav-btn selected" onclick="clickNav(this, 'about.html')"><span>About</span></button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="text">
+      <h1>About Me</h1>
+    </div>
+
+    <!-- Skills section -->
+    <div class="skills">
+      <div class="skill-pill">JavaScript</div>
+      <div class="skill-pill">HTML</div>
+      <div class="skill-pill">CSS</div>
+      <div class="skill-pill">Python</div>
+      <div class="skill-pill">SQL</div>
+      <div class="skill-pill">Figma</div>
+      <div class="skill-pill">Adobe Illustrator</div>
+      <div class="skill-pill">Premiere Pro</div>
+    </div>
+
+    <!-- Timeline section -->
+    <div class="timeline">
+      <h2>My Coding Journey</h2>
+      <p><strong style="color: var(--primary)">2021 </strong>I started coding around 5th grade learning python <br>
+      <br><strong style="color: var(--primary)">2023 </strong>- Python seemed to stick and in 7th grade I made <u><a style="color: var(--primary)"href="project.html">LifeLine</a></u><br>
+    <br><strong style="color: var(--primary)">2023-2024 </strong>- I made a few smaller undocumented projects. An example is a mini help screen for my macbook, run with a python program it would let me control my mac with a touchscreen<br>
+  <br><strong style="color: var(--primary)">2023 </strong>- Once python was strong I went to a coding competition, winning 3rd between multiple states<br>
+  <br><strong style="color: var(--primary)">2024-2025 </strong>- I decided to compete in FBLA for coding and programming and made <u><a style="color: var(--primary)"href="project.html">Money-Mate</a></u><br>
+<br><strong style="color: var(--primary)">2025 </strong>- I went to hackathons and recently just won 3rd at HackForsyth<br>
+<br><strong style="color: var(--primary)">2025 </strong>- My most recent project started in the summer of 2025 called <u><a style="color: var(--primary)", href="project.html">Kitchen-Mate</a></u>, just finished.</p>
+    </div>
+  </div>
+
+  <script>
+    // Navbar click effect
+    function clickNav(btn, url) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setTimeout(() => { window.location.href = url; }, 200);
+    }
+  </script>
+
+  <!-- Contact section -->
+  <div class="contact">
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+      <span><a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      <span><a href="https://www.instagram.com/samyakchat/">@samyakchat</a></span>
+    </div>
+    <div class="contact-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <span><a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a></span>
+    </div>
+  </div>
+
+</body>
+</html>
