@@ -1,261 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upcoming — Samyak Chatterjee</title>
   <link rel="icon" href="icons/logosss.png" type="image/png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upcoming - Samyak's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
-  <script>
-    
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
 
- 
-    function showModal(imageSrc) {
-      modal.style.display = 'block';
-      modalImg.src = imageSrc;
-    }``
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
 
-   
-    function closeModal() {
-      modal.style.display = 'none';
-    }
-  </script>
   <style>
     :root {
-      --primary: #38b6ff;
-      --secondary: #1e1e2f;
-      --white: #ffffff;
-      --black: #111111;
-      --gray: #333333;
-      --light-gray: #bbbbbb;
+      --bg: #0e0f14;
+      --surface: #141622;
+      --border: #23263a;
+
+      --text: #ffffff;
+      --muted: #9aa0b4;
+
+      --accent-blue: #38b6ff;
+      --accent-yellow: #ffd86b;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      background: radial-gradient(circle at 30% 20%, #15182a, #0e0f14 60%);
+      color: var(--text);
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #111111, #1a1a1a);
-      color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
     }
 
-    /* Navbar */
+    a { color: inherit; text-decoration: none; }
+
+    /* ======================
+       NAVBAR (MATCHES HOME)
+       ====================== */
+
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 90%;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background: rgba(20, 20, 30, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--gray);
-      border-radius: 15px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 24px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
     }
 
     .navbar-left a {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--white);
-      text-decoration: none;
-      transition: color 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .navbar-left a:hover { color: var(--primary); }
+    .navbar-left a:hover {
+      color: var(--accent-blue);
+      transition: ease-in 0.2s;
+      transition:  ease-out 0.3s;
+    }
 
-    .navbar-right { display: flex; gap: 10px; }
+    .navbar-right {
+      display: flex;
+      gap: 32px;
+    }
 
     .nav-btn {
-      border: 1px solid var(--light-gray);
-      border-radius: 15px;
-      padding: 12px 20px;
-      background: rgba(30,30,40,0.6);
-      color: var(--white);
-      font-weight: bold;
+      background: none;
+      border: none;
+      padding: 0;
       font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
       cursor: pointer;
-      transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
     }
-    .nav-btn.selected {
-      background: var(--primary);
-      color: var(--black);
-      border-color: var(--primary);
-    }
-    .nav-btn:hover { transform: scale(1.1); border-color: var(--primary); }
 
-    /* Section Container */
+    .nav-btn:hover {
+      color: var(--accent-blue);
+    }
+
+    .nav-btn.selected::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-yellow);
+    }
+        .nav-btn.selected:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-blue);
+    }
+    /* ======================
+       PROJECT SECTIONS
+       ====================== */
+
     .project-section {
-      padding: 40px 40px;
       max-width: 1200px;
-      margin: auto;
+      margin: 120px auto 0;
+      padding: 0 24px;
     }
-    .project-section h1 {
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .project-header h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: var(--primary);
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      margin: 0;
     }
-    .project-section p {
-      font-size: 1.1rem;
-      color: var(--light-gray);
-      margin-bottom: 10px;
+
+    .project-header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
     }
+
     .github-link {
       display: inline-block;
-      margin-bottom: 1px;
-      font-weight: bold;
-      color: var(--primary);
-      text-decoration: none;
-      transition: 0.3s;
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--accent-blue);
     }
-    .github-link:hover { text-decoration: underline; }
 
-    /* Gallery */
+    .project-section p {
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ======================
+       GALLERY
+       ====================== */
+
     .gallery-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 50px;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
     }
-    .gallery-item {
-      position: relative;
-      width: 20%;
-      border-radius: 20px;
-     background: rgba(20, 20, 30, 0.6);
-      border: 1px solid var(--gray);
-            backdrop-filter: blur(8px);
 
+    .gallery-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
+
     .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      transform: translateY(-6px);
+      border-color: var(--accent-yellow);
     }
+
     .gallery-image {
-        width:100%;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
       display: block;
     }
+
     .gallery-description {
-      padding: 15px;
-      text-align: center;
-    }
-    .gallery-description h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      margin: 0 0 8px;
-      color: var(--primary);
-    }
-    .gallery-description p {
-      font-size: 0.9rem;
-      color: var(--light-gray);
+      padding: 16px;
     }
 
-    /* Contact */
-    .contact {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px 30px;
-      background: rgba(20,20,30,0.8);
-      border-top: 2px solid var(--primary);
-      backdrop-filter: blur(6px);
-      border-radius: 20px;
-      gap: 20px;
-      flex-wrap: wrap;
+    .gallery-description h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      margin: 0 0 6px;
+      color: var(--text);
     }
+
+    .gallery-description p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ======================
+       FOOTER
+       ====================== */
+
+    .contact {
+      max-width: 1200px;
+      margin: 120px auto 48px;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 40px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
-      color: var(--light-gray);
-      text-decoration: none;
     }
-    .contact .contact-item:hover { opacity: 1; }
-    .contact img { width: 22px; height: 22px; }
+
+    .contact img {
+      width: 16px;
+      height: 16px;
+      filter: grayscale(100%) brightness(1.2);
+    }
+
+    /* ======================
+       RESPONSIVE
+       ====================== */
+
+    @media (max-width: 900px) {
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <div class="navbar">
     <div class="navbar-left">
       <a href="index.html">Samyak Chatterjee</a>
     </div>
     <div class="navbar-right">
-      <button class="nav-btn" onclick="window.location.href='index.html'"><span>Home</span></button>
-      <button class="nav-btn selected" onclick="window.location.href='upcoming.html'"><span>Upcoming</span></button>
-      <button class="nav-btn" onclick="window.location.href='project.html'"><span>Projects</span></button>
-      <button class="nav-btn" onclick="window.location.href='about.html'"><span>About</span></button>
+      <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+      <button class="nav-btn selected">Upcoming</button>
+      <button class="nav-btn" onclick="location.href='project.html'">Projects</button>
+      <button class="nav-btn" onclick="location.href='about.html'">About</button>
     </div>
   </div>
 
-  <!-- Projects Sections -->
+  <!-- TASK PANDA -->
+  <div class="project-section">
+    <div class="project-header">
+      <h1>Task Panda</h1>
+      <img src="images/pandaLogo.png" alt="Task Panda">
+    </div>
 
+    <a class="github-link">Made with React Native and SQL</a>
 
-  <div id="project2" class="project-section">
-    <div style="display: flex;">
-        <h1>Task Panda</h1>
-        <img src="images/pandaLogo.png" style="height: 75px; width: 75px;  border-width: 6px; border-radius: 20px; border-color: white; margin-left: 10px; margin-top: 15px;">
-    </div>
-    
-    <a  class="github-link" target="_blank">Made with React Native and SQL</a>
-    <p>Currently, the app is used to teach me React Native with Expo, where I will add new and better features as I develop. The Add Task button is temporary. <br style="margin-top: 10px;">Completing tasks is basic, but people need a structured
-        way to complete things in their life without burnout. Task Panda (will) offer many features to help you focus on whats important, while having fun
-        in our interactive Panda Simulator. The app will have a strucutre where you add tasks and brain dump all the things you have for the next day, they will then be assigned. You can also create goals with a similar structure. <br></p>
-    <div class="gallery-container">
-      <div class="gallery-item"><img src="images/noRepeatPandaTask1.png" class="gallery-image"><div class="gallery-description"><h3>Ideal Homescreen</h3><p>This is what you will see every day when completing tasks. You can have color tags, and repeating tasks.</p></div></div>
-      <div class="gallery-item"><img src="images/repeatPandaTask2.png" class="gallery-image"><div class="gallery-description"><h3>Repeating Tasks</h3><p>When you enable repeating tasks (Every day, or 2 days or week), they show with the symbol.</p></div></div>
-      <div class="gallery-item"><img src="images/goalsPandaTask3.png" class="gallery-image"><div class="gallery-description"><h3>Goal Screen</h3><p>This is the goal screen where your current goal is laid out in steps you complete.</p></div></div>
-    </div>
-  </div>
-    <div id="project1" class="project-section">
-    <div style="display: flex;">
-        <h1>SubHub</h1>
-        <img src="images/subhublogo.png" style="height: 75px; width: 75px;  border-width: 6px; border-radius: 20px; border-color: white; margin-left: 10px; margin-top: 15px;">
-    </div>
-    <a  class="github-link" target="_blank">Made with SwiftUI, SQL</a>
-    <p><br>To learn SwiftUI, I created SubHub as a simple subscription manager. <br>Do you struggle with keeping up with subscriptions
-        you didnt know you had? Subhub makes it easy to see these and pay so you don't waste money on subscriptions you don't need. For me, I used
-        SubHub to learn how to use SQL on Swift, as well as learn SwiftUI in general.
+    <p>
+      Currently, the app is used to teach me React Native with Expo, where I will add new and better features as I develop. The Add Task button is temporary.
+      <br><br>
+      Completing tasks is basic, but people need a structured way to complete things in their life without burnout. Task Panda (will) offer many features to help you focus on whats important, while having fun in our interactive Panda Simulator. The app will have a strucutre where you add tasks and brain dump all the things you have for the next day, they will then be assigned. You can also create goals with a similar structure.
     </p>
+
     <div class="gallery-container">
-      <div class="gallery-item"><img src="images/SubHub1.png" class="gallery-image"><div class="gallery-description"><h3>Add Modal</h3><p>This is a modal where you fill out parameters for a subscription.</p></div></div>
-      <div class="gallery-item"><img src="images/SubHub2.png" class="gallery-image"><div class="gallery-description"><h3>Main Screen</h3><p>This is where you view subscriptions organized by priotity.</p></div></div>
-      <div class="gallery-item"><img src="images/SubHub3.png" class="gallery-image"><div class="gallery-description"><h3>Edit Mode</h3><p>Like in any IOS app, you can remove subscriptions</p></div></div>
-     
+      <div class="gallery-item">
+        <img src="images/noRepeatPandaTask1.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Ideal Homescreen</h3>
+          <p>This is what you will see every day when completing tasks. You can have color tags, and repeating tasks.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/repeatPandaTask2.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Repeating Tasks</h3>
+          <p>When you enable repeating tasks (Every day, or 2 days or week), they show with the symbol.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/goalsPandaTask3.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Goal Screen</h3>
+          <p>This is the goal screen where your current goal is laid out in steps you complete.</p>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- SUBHUB -->
+  <div class="project-section">
+    <div class="project-header">
+      <h1>SubHub</h1>
+      <img src="images/subhublogo.png" alt="SubHub">
+    </div>
 
+    <a class="github-link">Made with SwiftUI, SQL</a>
 
-  <!-- Contact -->
+    <p>
+      <br>
+      To learn SwiftUI, I created SubHub as a simple subscription manager.
+      <br>
+      Do you struggle with keeping up with subscriptions you didnt know you had? Subhub makes it easy to see these and pay so you don't waste money on subscriptions you don't need. For me, I used SubHub to learn how to use SQL on Swift, as well as learn SwiftUI in general.
+    </p>
+
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="images/SubHub1.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Add Modal</h3>
+          <p>This is a modal where you fill out parameters for a subscription.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/SubHub2.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Main Screen</h3>
+          <p>This is where you view subscriptions organized by priotity.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/SubHub3.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Edit Mode</h3>
+          <p>Like in any IOS app, you can remove subscriptions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <div class="contact">
     <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-      <span><a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a></span>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+      <a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a>
     </div>
     <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      <span><a href="https://www.instagram.com/samyakchat/">@samyakchat</a></span>
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+      <a href="https://www.instagram.com/samyakchat/">@samyakchat</a>
     </div>
     <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      <span><a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a></span>
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+      <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">LinkedIn</a>
     </div>
   </div>
+
 </body>
 </html>
