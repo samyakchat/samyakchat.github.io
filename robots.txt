@@ -1,0 +1,3 @@
+User-agent: *
+   Allow: /
+   Sitemap: https://samyakchat.github.io/sitemap.xml
