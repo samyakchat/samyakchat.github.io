@@ -141,12 +141,54 @@
       color: var(--muted);
     }
 
+    /* DROPDOWN TOGGLE */
+    .gallery-toggle {
+      background: none;
+      border: none;
+      padding: 12px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--accent-blue);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s ease;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .gallery-toggle:hover {
+      color: var(--accent-yellow);
+    }
+
+    .gallery-toggle-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-toggle.closed .gallery-toggle-icon {
+      transform: rotate(-90deg);
+    }
+
     /* GALLERY */
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
-      margin-top: 48px;
+      margin-top: 12px;
+      max-height: 2000px;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    .gallery-container.hidden {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
     }
 
     .gallery-item {
@@ -155,7 +197,6 @@
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease;
-      /* width: 400px; */
     }
 
     .gallery-item:hover {
@@ -231,62 +272,27 @@
     </div>
   </div>
 
-  <!-- LifeLine -->
-  <div class="project-section">
-    <div class="project-header">
-      <h1>LifeLine</h1>
-      
-    </div>
-
-    <a class="github-link" href="https://github.com/samyakchat/LifeLine/" target="_blank">View on GitHub</a>
-
-    <p>
-      A Python application that could be run anywhere. It's meant for the elderly population that needs assistance from a nurse or caretaker. At the chance a caretaker is away from the patient, the patient can call for the caretaker, call for a cast of nurses, or call for specific people. The defaults are Lady and Man, but can be customized to anybody.
-    </p>
-
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="images/alertss.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Main UI</h3>
-          <p>The primary dashboard with 4 easy to read and tap buttons; Made for a touchscreen.</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/numberss.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Contacts</h3>
-          <p>You can contact up to 4 numbers with AlertAll.</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/exmapleimage.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>In-Use</h3>
-          <p>This is it being used for my Grandma</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/textmessage.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Example Receipt</h3>
-          <p>Along with calling and alarms playing, here is an example text message</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Kitchen-mate -->
   <div class="project-section">
     <div class="project-header">
       <h1>Kitchen-mate</h1>
     </div>
 
-    <a class="github-link" href="https://github.com/samyakchat/KitchenMate/" target="_blank">View on GitHub</a>
+    <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 12px;">
+      <span style="color: var(--accent-yellow); " class="github-link">2025</span><a class="github-link" href="https://github.com/samyakchat/KitchenMate/" target="_blank">View on GitHub</a>
+      
+    </div>
 
     <p>
       A small device that was made to help around the kitchen all with a touchscreen. Making a casserole? Find the best recipe based on any region through our MasterChef app, manage the ingredients with the PantryPal app, and time your dishes in the oven with Timer. If you are ever bored in the process, play Wordle, check the weather, or listen to music!
     </p>
+
+    <button class="gallery-toggle" onclick="toggleGallery(this)">
+      <svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+      View Images
+    </button>
 
     <div class="gallery-container">
       <div class="gallery-item">
@@ -320,17 +326,72 @@
     </div>
   </div>
 
+  <!-- SubHub -->
+  <div class="project-section">
+    <div class="project-header">
+      <h1>SubHub</h1>
+      <img src="images/subhublogo.png" alt="SubHub">
+    </div>
+
+    <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 12px;">
+     <span style="color: var(--accent-yellow); " class="github-link">2024-2025</span> <a class="github-link">Made with SwiftUI, SQL</a>
+      
+    </div>
+
+    <p>
+      To learn SwiftUI, I created SubHub as a simple subscription manager.
+      <br><br>
+      Do you struggle with keeping up with subscriptions you didnt know you had? Subhub makes it easy to see these and pay so you don't waste money on subscriptions you don't need. For me, I used SubHub to learn how to use SQL on Swift, as well as learn SwiftUI in general.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
+      <div class="gallery-item">
+        <img src="images/subhub/subadd.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Add Modal</h3>
+          <p>This is a modal where you fill out parameters for a subscription.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/subhub/subhub.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Main Screen</h3>
+          <p>This is where you view subscriptions organized by priotity.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/subhub/subedit.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Edit Mode</h3>
+          <p>Like in any IOS app, you can remove subscriptions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Money-Mate -->
   <div class="project-section">
     <div class="project-header">
       <h1>Money-Mate</h1>
     </div>
 
-    <a class="github-link" href="https://github.com/samyakchat/Money-Mate/" target="_blank">View on GitHub</a>
+    <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 12px;">
+      <span style="color: var(--accent-yellow); " class="github-link">2024-2025</span><a class="github-link" href="https://github.com/samyakchat/Money-Mate/" target="_blank">View on GitHub</a>
+      
+    </div>
 
     <p>
       A tk-inter based app made for student spending. It tracks student spending and has advanced and basic features. To add transactions you can either manually fill in fields, or talk about your day. When you talk about your day the AI will then create transactions for you making your job easier. Some more basic features are filtered search, summary generator, and view filtered transactions.
     </p>
+
+    <button class="gallery-toggle" onclick="toggleGallery(this)">
+      <svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+      View Images
+    </button>
 
     <div class="gallery-container">
       <div class="gallery-item">
@@ -371,6 +432,60 @@
     </div>
   </div>
 
+  <!-- LifeLine -->
+  <div class="project-section">
+    <div class="project-header">
+      <h1>LifeLine</h1>
+    </div>
+
+    <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 12px;">
+      <span style="color: var(--accent-yellow); " class="github-link">2023</span><a class="github-link" href="https://github.com/samyakchat/LifeLine/" target="_blank">View on GitHub</a>
+      
+    </div>
+
+    <p>
+      A Python application that could be run anywhere. It's meant for the elderly population that needs assistance from a nurse or caretaker. At the chance a caretaker is away from the patient, the patient can call for the caretaker, call for a cast of nurses, or call for specific people. The defaults are Lady and Man, but can be customized to anybody.
+    </p>
+
+    <button class="gallery-toggle" onclick="toggleGallery(this)">
+      <svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+      View Images
+    </button>
+
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="images/alertss.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Main UI</h3>
+          <p>The primary dashboard with 4 easy to read and tap buttons; Made for a touchscreen.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/numberss.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Contacts</h3>
+          <p>You can contact up to 4 numbers with AlertAll.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/exmapleimage.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>In-Use</h3>
+          <p>This is it being used for my Grandma</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/textmessage.png" class="gallery-image">
+        <div class="gallery-description">
+          <h3>Example Receipt</h3>
+          <p>Along with calling and alarms playing, here is an example text message</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <div class="contact">
     <div class="contact-item">
@@ -386,6 +501,21 @@
       <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">LinkedIn</a>
     </div>
   </div>
+
+  <script>
+    function toggleGallery(button) {
+      const gallery = button.nextElementSibling;
+      gallery.classList.toggle('hidden');
+      button.classList.toggle('closed');
+
+      // Change button text
+      if (gallery.classList.contains('hidden')) {
+        button.innerHTML = '<svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>View Images';
+      } else {
+        button.innerHTML = '<svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>Hide Images';
+      }
+    }
+  </script>
 
 </body>
 </html>
