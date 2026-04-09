@@ -14,17 +14,15 @@
        COOL TECH SYSTEM (WARMED)
        ====================== */
 
-    :root {
-      --bg: #0e0f14;
-      --surface: #141622;
-      --border: #23263a;
-
-      --text: #ffffff;
-      --muted: #9aa0b4;
-
+:root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --border: #e0e6ed;
+      --text: #1a1a1a;
+      --muted: #6c757d;
       /* Accents */
       --accent-blue: #38b6ff;
-      --accent-yellow: #ffd86b;
+      --accent-yellow: #e67700;
     }
 
     * {
@@ -33,7 +31,7 @@
 
     body {
       margin: 0;
-      background: radial-gradient(circle at 30% 20%, #15182a, #0e0f14 60%);
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
       color: var(--text);
       font-family: 'Open Sans', sans-serif;
       height: 100%;
@@ -285,7 +283,7 @@
     .contact img {
       width: 16px;
       height: 16px;
-      filter: grayscale(100%) brightness(1.2);
+      filter: brightness(0) saturate(100%) invert(30%);
     }
 
     /* ======================
