@@ -1,302 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upcoming — Samyak Chatterjee</title>
-  <link rel="icon" href="icons/logosss.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming — Samyak Chatterjee</title>
+    <link rel="icon" href="icons/logosss.png" type="image/png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-:root {
-      --bg: #f8f9fa;
-      --surface: #ffffff;
-      --border: #e0e6ed;
-      --text: #1a1a1a;
-      --muted: #6c757d;
-      --accent-blue: #38b6ff;
-      --accent-yellow: #e67700;
-    }
+    <style>
+      :root {
+        --bg: #f3eeec;
+        --surface: #ffffff;
+        --border: #9caaa5;
+        --text: #3e3d37;
+        --muted: #7c6e65;
+        /* Accents */
+        --accent-blue: #2b6cbb;
+        --accent-gold: #895f47;
+      }
 
-    * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      color: var(--text);
-      font-family: 'Open Sans', sans-serif;
-    }
+      body {
+        margin: 0;
+        background: linear-gradient(135deg, #f3eeec, #f8f4f0);
+        color: var(--text);
+        font-family: "Open Sans", sans-serif;
+        height: 100%;
+        min-height: 100vh;
+      }
 
-    a { color: inherit; text-decoration: none; }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    /* ======================
+      /* ======================
        NAVBAR (MATCHES HOME)
        ====================== */
 
-    .navbar {
-      max-width: 1200px;
-      margin: 40px auto 0;
-      padding: 0 24px 16px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      border-bottom: 1px solid var(--border);
-    }
+      .navbar {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 24px 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        border-bottom: 1px solid var(--border);
+      }
 
-    .navbar-left a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .navbar-left a:hover {
-      color: var(--accent-blue);
-      transition: ease-in 0.2s;
-      transition:  ease-out 0.3s;
-    }
+      .navbar-left a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .navbar-left a:hover {
+        color: var(--accent-blue);
+        transition: ease-in 0.2s;
+        transition: ease-out 0.3s;
+      }
 
-    .navbar-right {
-      display: flex;
-      gap: 32px;
-    }
+      .navbar-left a:active {
+        color: var(--accent-blue);
+      }
 
-    .nav-btn {
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      color: var(--muted);
-      cursor: pointer;
-      position: relative;
-    }
+      .navbar-right {
+        display: flex;
+        gap: 32px;
+      }
 
-    .nav-btn:hover {
-      color: var(--accent-blue);
-    }
+      .nav-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--muted);
+        cursor: pointer;
+        position: relative;
+      }
 
-    .nav-btn.selected::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-yellow);
-    }
-        .nav-btn.selected:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-blue);
-    }
-    /* ======================
+      .nav-btn:hover {
+        color: var(--text);
+      }
+
+      .nav-btn.selected {
+        color: var(--accent-blue); /* Sets text to blue */
+      }
+
+      .nav-btn.selected::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-blue); /* Sets underline to blue */
+      }
+      /* ======================
        PROJECT SECTIONS
        ====================== */
 
-    .project-section {
-      max-width: 1200px;
-      margin: 120px auto 0;
-      padding: 0 24px;
-    }
+      .project-section {
+        max-width: 1200px;
+        margin: 120px auto 0;
+        padding: 0 24px;
+      }
 
-    .project-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
+      .project-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
 
-    .project-header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.4rem;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
+      .project-header h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
 
-    .project-header img {
-      width: 70px;
-      height: 70px;
-      border-radius: 16px;
-    }
+      .project-header img {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+      }
 
-    .github-link {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      color: var(--accent-blue);
-    }
+      .github-link {
+        display: inline-block;
+        margin-bottom: 12px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.8rem;
+        color: var(--accent-blue);
+      }
 
-    .project-section p {
-      max-width: 760px;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--muted);
-    }
+      .project-section p {
+        max-width: 760px;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
 
-    /* ======================
+      /* ======================
        GALLERY
        ====================== */
 
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 48px;
-    }
+      .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 48px;
+      }
 
-    .gallery-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
+      .gallery-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
 
-    .gallery-item:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent-yellow);
-    }
+      .gallery-item:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent-yellow);
+      }
 
-    .gallery-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+      .gallery-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-    .gallery-description {
-      padding: 16px;
-    }
+      .gallery-description {
+        padding: 16px;
+      }
 
-    .gallery-description h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      margin: 0 0 6px;
-      color: var(--text);
-    }
+      .gallery-description h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        margin: 0 0 6px;
+        color: var(--text);
+      }
 
-    .gallery-description p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+      .gallery-description p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
 
-    /* ======================
+      /* ======================
        FOOTER
        ====================== */
 
-    .contact {
-      max-width: 1200px;
-      margin: 120px auto 48px;
-      padding: 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: 40px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+      .contact {
+        max-width: 1200px;
+        margin: 120px auto 48px;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 40px;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
-    .contact img {
-      width: 16px;
-      height: 16px;
-      filter: brightness(0) saturate(100%) invert(30%);
-    }
+      .contact img {
+        width: 16px;
+        height: 16px;
+        filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
+      }
 
-    /* ======================
+      /* ======================
        RESPONSIVE
        ====================== */
 
-    @media (max-width: 900px) {
-      .gallery-container {
-        grid-template-columns: 1fr;
+      @media (max-width: 900px) {
+        .gallery-container {
+          grid-template-columns: 1fr;
+        }
       }
-    }
-  </style>
-</head>
+    </style>
+  </head>
 
-<body>
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="navbar-left">
-      <a href="index.html">Samyak Chatterjee</a>
-    </div>
-    <div class="navbar-right">
-      <button class="nav-btn" onclick="location.href='index.html'">Home</button>
-      <button class="nav-btn selected">Upcoming</button>
-      <button class="nav-btn" onclick="location.href='project.html'">Projects</button>
-      <button class="nav-btn" onclick="location.href='about.html'">About</button>
-    </div>
-  </div>
-
-  <!-- TASK PANDA -->
-  <div class="project-section">
-    <div class="project-header">
-      <h1>Task Panda</h1>
-      <img src="images/pandaimages/icon.png" alt="Task Panda">
-    </div>
-
-    <a class="github-link">Made with React Native and SQL (soon to incorporate AWS)</a>
-
-    <p>
-      Initially, I started the app to help myself with task management, but the issue goes way past just me. The app will feature a full tech stack using AWS for authentication and object storage, while using PostgreSQL for the database. 
-      <br><br>
-      Completing tasks is basic, but people need a structured way to complete things in their life without burnout. Task Panda will offer many features to help you focus on whats important, while having fun in our interactive Panda Simulator. Task Panda offers features such as Hanging Deadlines, Schedule Automater, Ramble, and more features centered around students.
-    </p>
-
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="images/pandaimages/1.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Ideal Homescreen (TODO)</h3>
-          <p>This is what you will see every day when completing tasks. You can have color tags, and repeating tasks.</p>
-        </div>
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">Samyak Chatterjee</a>
       </div>
-
-      <div class="gallery-item">
-        <img src="images/pandaimages/2.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Completed Tasks</h3>
-          <p>This shows what you've completed today. When you enable repeating tasks (Every day, or 2 days or week), they show with the symbol.</p>
-        </div>
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/pandaimages/3.png" class="gallery-image">
-        <div class="gallery-description">
-          <h3>Add Mission Modal (example)</h3>
-          <p>This is how you would add a mission, this is one of many add modals.</p>
-        </div>
+      <div class="navbar-right">
+        <button class="nav-btn" onclick="location.href='index.html'">
+          Home
+        </button>
+        <button class="nav-btn selected">Upcoming</button>
+        <button class="nav-btn" onclick="location.href='project.html'">
+          Projects
+        </button>
+        <button class="nav-btn" onclick="location.href='about.html'">
+          About
+        </button>
       </div>
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <div class="contact">
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-      <a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-      <a href="https://www.instagram.com/samyakchat/">@samyakchat</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
-      <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">LinkedIn</a>
-    </div>
-  </div>
+    <!-- TASK PANDA -->
+    <div class="project-section">
+      <div class="project-header">
+        <h1>Task Panda</h1>
+        <img src="images/pandaimages/icon.png" alt="Task Panda" />
+      </div>
 
-</body>
+      <a class="github-link"
+        >Made with React Native and SQL (soon to incorporate AWS)</a
+      >
+
+      <p>
+        Initially, I started the app to help myself with task management, but
+        the issue goes way past just me. The app will feature a full tech stack
+        using AWS for authentication and object storage, while using PostgreSQL
+        for the database.
+        <br /><br />
+        Completing tasks is basic, but people need a structured way to complete
+        things in their life without burnout. Task Panda will offer many
+        features to help you focus on whats important, while having fun in our
+        interactive Panda Simulator. Task Panda offers features such as Hanging
+        Deadlines, Schedule Automater, Ramble, and more features centered around
+        students.
+      </p>
+
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="images/pandaimages/1.png" class="gallery-image" />
+          <div class="gallery-description">
+            <h3>Ideal Homescreen (TODO)</h3>
+            <p>
+              This is what you will see every day when completing tasks. You can
+              have color tags, and repeating tasks.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/pandaimages/2.png" class="gallery-image" />
+          <div class="gallery-description">
+            <h3>Completed Tasks</h3>
+            <p>
+              This shows what you've completed today. When you enable repeating
+              tasks (Every day, or 2 days or week), they show with the symbol.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/pandaimages/3.png" class="gallery-image" />
+          <div class="gallery-description">
+            <h3>Add Mission Modal (example)</h3>
+            <p>
+              This is how you would add a mission, this is one of many add
+              modals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="contact">
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
+        <a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" />
+        <a href="https://www.instagram.com/samyakchat/">@samyakchat</a>
+      </div>
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+        <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/"
+          >LinkedIn</a
+        >
+      </div>
+    </div>
+  </body>
 </html>

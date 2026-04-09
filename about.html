@@ -9,13 +9,13 @@
 
   <style>
 :root {
-      --bg: #f8f9fa;
+      --bg: #F3EEEC;
       --surface: #ffffff;
-      --border: #e0e6ed;
-      --text: #1a1a1a;
-      --muted: #6c757d;
-      --accent-blue: #38b6ff;
-      --accent-yellow: #e67700;
+      --border: #9CAAA5;
+      --text: #3E3D37;
+      --muted: #7C6E65;
+--accent-blue: #2B6CBB;
+      --accent-gold: #895F47;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +23,7 @@
 
     body {
       margin: 0;
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      background: linear-gradient(135deg, #F3EEEC, #f8f4f0);
       color: var(--text);
       font-family: 'Open Sans', sans-serif;
     }
@@ -31,66 +31,65 @@
     a { color: inherit; text-decoration: none; }
 
     /* NAVBAR */
-    .navbar {
-      max-width: 1200px;
-      margin: 40px auto 0;
-      padding: 0 24px 16px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      border-bottom: 1px solid var(--border);
-    }
+      .navbar {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 24px 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        border-bottom: 1px solid var(--border);
+      }
 
-    .navbar-left a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .navbar-left a:hover {
-      color: var(--accent-blue);
-      transition: ease-in 0.2s;
-      transition:  ease-out 0.3s;
-    }
+      .navbar-left a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .navbar-left a:hover {
+        color: var(--accent-blue);
+        transition: ease-in 0.2s;
+        transition: ease-out 0.3s;
+      }
 
-    .navbar-right {
-      display: flex;
-      gap: 32px;
-    }
+      .navbar-left a:active {
+        color: var(--accent-blue);
+      }
 
-    .nav-btn {
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      color: var(--muted);
-      cursor: pointer;
-      position: relative;
-    }
+      .navbar-right {
+        display: flex;
+        gap: 32px;
+      }
 
-    .nav-btn:hover {
-      color: var(--accent-blue);
-    }
+      .nav-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--muted);
+        cursor: pointer;
+        position: relative;
+      }
 
-    .nav-btn.selected::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-yellow);
-    }
-    .nav-btn.selected:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-blue);
-    }
+      .nav-btn:hover {
+        color: var(--text);
+      }
+
+      .nav-btn.selected {
+        color: var(--accent-blue); /* Sets text to blue */
+      }
+
+      .nav-btn.selected::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-blue); /* Sets underline to blue */
+      }
     /* Main container */
     .container {
       max-width: 900px;
@@ -186,7 +185,7 @@
     .contact img {
       width: 20px;
       height: 20px;
-      filter: brightness(0) saturate(100%) invert(30%);
+      filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
     }
 
     @media (max-width: 600px) {
@@ -219,14 +218,14 @@
 
     <div class="skills">
       <div class="skill-pill">Python</div>
-      <div class="skill-pill">SQL</div>
+      <div class="skill-pill">React</div>
       <div class="skill-pill">Figma</div>
       <div class="skill-pill">Adobe Illustrator</div>
       <div class="skill-pill">Premiere Pro</div>
       <div class="skill-pill">JavaScript</div>
       <div class="skill-pill">HTML</div>
       <div class="skill-pill">CSS</div>
-      <div class="skill-pill">React Native (Expo)</div>
+      <div class="skill-pill">React Native</div>
     </div>
 
     <div class="timeline">
@@ -239,8 +238,9 @@
       <br><strong style="color: var(--accent-blue)">2025 </strong>- I went to hackathons and recently just won 3rd at HackForsyth<br>
       <br><strong style="color: var(--accent-blue)">2025 </strong>- My project started in the spring of 2025 called <u><a href="project.html#project2">Kitchen-Mate</a></u>, just finished.<br>
       <br><strong style="color: var(--accent-blue)">2025 </strong>- I went on a path to explore App development. This is where I decided to learn SwiftUI and made <u><a href="upcoming.html#project1">Subhub</a></u><br>
-      <br><strong style="color: var(--accent-blue)">2025 </strong>- Continuing this Journey I decided to make an app I thought had a real chance of becoming big. I learned React Native with Expo for cross platform development. At this point, I am still working on <u><a href="upcoming.html#project2">Task Panda</a></u> with an intricate SQL system, as I delve into Data Science to help different fields.<br>
-      </p>
+      <br><strong style="color: var(--accent-blue)">2025 </strong>- Continuing this Journey I've decided to make an app that helps not only me, but others. I learned React Native and how to manage servers with authentication. At this point, I am still working on <u><a href="upcoming.html#project2">Task Panda</a></u> with an AWS backend.<br>
+      <br><strong style="color: var(--accent-blue)">2026 </strong>- As a random idea to help me with future projects, I made <u><a href="upcoming.html#project2">Colordrift</a></u> to solidify my skills in React and website deployment.<br>
+    </p>
     </div>
   </div>
 

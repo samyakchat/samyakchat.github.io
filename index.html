@@ -15,14 +15,14 @@
        ====================== */
 
 :root {
-      --bg: #f8f9fa;
+      --bg: #F3EEEC;
       --surface: #ffffff;
-      --border: #e0e6ed;
-      --text: #1a1a1a;
-      --muted: #6c757d;
+      --border: #9CAAA5;
+      --text: #3E3D37;
+      --muted: #7C6E65;
       /* Accents */
-      --accent-blue: #38b6ff;
-      --accent-yellow: #e67700;
+--accent-blue: #2B6CBB;
+      --accent-gold: #895F47;
     }
 
     * {
@@ -31,7 +31,7 @@
 
     body {
       margin: 0;
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      background: linear-gradient(135deg, #F3EEEC, #f8f4f0);
       color: var(--text);
       font-family: 'Open Sans', sans-serif;
       height: 100%;
@@ -52,67 +52,65 @@
        NAVBAR
        ====================== */
 
-    .navbar {
-      max-width: 1200px;
-      margin: 40px auto 0;
-      padding: 0 24px 16px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      border-bottom: 1px solid var(--border);
-    }
+      .navbar {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 24px 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        border-bottom: 1px solid var(--border);
+      }
 
-    .navbar-left a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .navbar-left a:hover {
-      color: var(--accent-blue);
-      transition: ease-in 0.2s;
-      transition:  ease-out 0.3s;
-    }
+      .navbar-left a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .navbar-left a:hover {
+        color: var(--accent-blue);
+        transition: ease-in 0.2s;
+        transition: ease-out 0.3s;
+      }
 
-    .navbar-right {
-      display: flex;
-      gap: 32px;
-      
-    }
-        .nav-btn.selected:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-blue);
-    }
+      .navbar-left a:active {
+        color: var(--accent-blue);
+      }
 
-    .nav-btn {
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      color: var(--muted);
-      cursor: pointer;
-      position: relative;
-    }
+      .navbar-right {
+        display: flex;
+        gap: 32px;
+      }
 
-    .nav-btn:hover {
-      color: var(--accent-blue);
-    }
+      .nav-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--muted);
+        cursor: pointer;
+        position: relative;
+      }
 
-    .nav-btn.selected::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent-yellow);
-    }
+      .nav-btn:hover {
+        color: var(--text);
+      }
+
+      .nav-btn.selected {
+        color: var(--accent-blue); /* Sets text to blue */
+      }
+
+      .nav-btn.selected::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-blue); /* Sets underline to blue */
+      }
 
     /* ======================
        GRID LAYOUT
@@ -185,19 +183,23 @@
     }
 
     .cta:hover {
-      border-color: var(--accent-yellow);
-      color: var(--accent-yellow);
+      border-color: var(--text);
+      color: var(--bg);
+      background-color: var(--text);
+      transition: all 0.3s ease;
     }
     .cta:active {
       border-color: var(--accent-yellow);
       color: var(--bg);
-      background-color: var(--accent-yellow);
+      background-color: var(--muted);
       transition: border-color 0.2s ease, color 0.2s ease;
     }
     
     .cta2:hover {
       border-color: var(--accent-blue);
-      color: var(--accent-blue);
+      color: var(--bg);
+      background-color: var(--accent-blue);
+      transition: all 0.3s ease;
     }
     .cta2:active {
       border-color: var(--accent-blue);
@@ -283,7 +285,7 @@
     .contact img {
       width: 16px;
       height: 16px;
-      filter: brightness(0) saturate(100%) invert(30%);
+      filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
     }
 
     /* ======================
