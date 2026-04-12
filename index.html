@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="x_l4qtSqvzUXdfSuq4Jgu10a3sNj1AapeVKYKOimkNM" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Samyak Chatterjee — Portfolio</title>
   <link rel="icon" href="icons/logosss.png" type="image/png">
@@ -10,39 +9,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
 
   <style>
-    /* ======================
-       COOL TECH SYSTEM (WARMED)
-       ====================== */
-
-:root {
+    :root {
       --bg: #F3EEEC;
       --surface: #ffffff;
       --border: #9CAAA5;
       --text: #3E3D37;
       --muted: #7C6E65;
-      /* Accents */
---accent-blue: #2B6CBB;
-      --accent-gold: #895F47;
+      --accent-blue: #2B6CBB;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       background: linear-gradient(135deg, #F3EEEC, #f8f4f0);
       color: var(--text);
       font-family: 'Open Sans', sans-serif;
-      height: 100%;
-      min-height: 100vh
-    }
-    .buttondiv {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      width: fit-content;
-
     }
+
+    /* Resetting link formatting to match your original design */
     a {
       color: inherit;
       text-decoration: none;
@@ -51,71 +39,51 @@
     /* ======================
        NAVBAR
        ====================== */
+    .navbar {
+      width: 100%;
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 24px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+    }
 
-      .navbar {
-        max-width: 1200px;
-        margin: 40px auto 0;
-        padding: 0 24px 16px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: end;
-        border-bottom: 1px solid var(--border);
-      }
+    .navbar-left a {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
-      .navbar-left a {
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-      .navbar-left a:hover {
-        color: var(--accent-blue);
-        transition: ease-in 0.2s;
-        transition: ease-out 0.3s;
-      }
+    .navbar-right { display: flex; gap: 32px; }
 
-      .navbar-left a:active {
-        color: var(--accent-blue);
-      }
+    .nav-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      position: relative;
+    }
 
-      .navbar-right {
-        display: flex;
-        gap: 32px;
-      }
-
-      .nav-btn {
-        background: none;
-        border: none;
-        padding: 0;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        color: var(--muted);
-        cursor: pointer;
-        position: relative;
-      }
-
-      .nav-btn:hover {
-        color: var(--text);
-      }
-
-      .nav-btn.selected {
-        color: var(--accent-blue); /* Sets text to blue */
-      }
-
-      .nav-btn.selected::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 100%;
-        height: 2px;
-        background: var(--accent-blue); /* Sets underline to blue */
-      }
+    .nav-btn.selected { color: var(--accent-blue); }
+    .nav-btn.selected::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-blue);
+    }
 
     /* ======================
-       GRID LAYOUT
+       GRID & TEXT
        ====================== */
-
     .container {
       max-width: 1200px;
       margin: 96px auto 0;
@@ -124,31 +92,29 @@
       grid-template-columns: repeat(12, 1fr);
       gap: 48px 32px;
       align-items: center;
+      flex-grow: 1;
     }
 
-    /* ======================
-       HERO TEXT
-       ====================== */
+    .cursor {
+  display: inline-block;
+  width: 6px;
+  height: 1em;
+  background: var(--accent-blue);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
 
-    .text {
-      grid-column: 1 / 7;
-    }
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
+    .text { grid-column: 1 / 7; }
     .text h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
     }
-
-    /* .text h1::after {
-      content: "";
-      display: block;
-      width: 48px;
-      height: 3px;
-      margin-top: 16px;
-      background: var(--accent-yellow);
-    } */
 
     .text p {
       font-size: 1rem;
@@ -157,7 +123,7 @@
       max-width: 520px;
     }
 
-    .cta {
+    .cta, .cta2 {
       margin-top: 16px;
       margin-right: 12px;
       display: inline-block;
@@ -166,150 +132,94 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 0.8rem;
       color: var(--text);
-      transition: border-color 0.2s ease, color 0.2s ease;
-      text-align: center;
-    }
-    .cta2 {
-      margin-top: 16px;
-      margin-right: 12px;
-      display: inline-block;
-      padding: 12px 24px;
-      border: 1.5px solid var(--muted);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      color: var(--text);
-      transition: border-color 0.2s ease, color 0.2s ease;
-      text-align: center;
-    }
-
-    .cta:hover {
-      border-color: var(--text);
-      color: var(--bg);
-      background-color: var(--text);
       transition: all 0.3s ease;
     }
-    .cta:active {
-      border-color: var(--accent-yellow);
-      color: var(--bg);
-      background-color: var(--muted);
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-    
-    .cta2:hover {
-      border-color: var(--accent-blue);
-      color: var(--bg);
-      background-color: var(--accent-blue);
-      transition: all 0.3s ease;
-    }
-    .cta2:active {
-      border-color: var(--accent-blue);
-      color: var(--bg);
-      background-color: var(--accent-blue);
-      transition: border-color 0.2s ease, color 0.2s ease;
 
-    }
+    .cta:hover { border-color: var(--text); color: var(--bg); background-color: var(--text); }
+    .cta2:hover { border-color: var(--accent-blue); color: var(--bg); background-color: var(--accent-blue); }
 
     /* ======================
-       CAROUSEL (EXHIBIT)
+       MINIMAL TERMINAL
        ====================== */
+    .terminal {
+  grid-column: 7 / -1;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
 
-    .carousel {
-      grid-column: 7 / -1;
-      height: 420px;
-      position: relative;
-      
-      background: var(--bg);
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .img-box {
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 1s ease, opacity 1s ease;
-      opacity: 0.25;
-      filter: grayscale(100%);
-    }
-
-    .img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .center {
-      transform: translateY(-40px) scale(1.1);
-      opacity: 1;
-      filter: none;
-      z-index: 3;
-      /* box-shadow: 0 0 0 1px rgba(255, 216, 107, 0.35); */
-    }
-
- 
-
-    .semi-left-1 { transform: translateX(-200px) translateY(80px) scale(0.7); }
-    .semi-left-2 { transform: translateX(-140px) translateY(100px) scale(0.75); }
-    .semi-left-3 { transform: translateX(-80px) translateY(120px) scale(0.8); }
-
-    .semi-right-1 { transform: translateX(200px) translateY(80px) scale(0.7); }
-    .semi-right-2 { transform: translateX(140px) translateY(100px) scale(0.75); }
-    .semi-right-3 { transform: translateX(80px) translateY(120px) scale(0.8); }
-
-    /* ======================
-       FOOTER
-       ====================== */
-
-    .contact {
-      max-width: 1200px;
-      margin: 120px auto 48px;
+    .terminal-body {
       padding: 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: 40px;
-      font-size: 0.8rem;
-      color: var(--muted);
+      overflow-y: auto;
+      flex-grow: 1;
+      font-size: 0.85rem;
+      color: var(--text);
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .terminal-header {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
 
-    .contact img {
-      width: 16px;
-      height: 16px;
-      filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
+    .terminal-line { margin-bottom: 6px; letter-spacing: 0.02em; }
+    .terminal-input-wrap { display: flex; align-items: center; }
+    
+    .terminal-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: inherit;
+      color: var(--accent-blue);
+      flex-grow: 1;
+      padding-left: 8px;
     }
 
     /* ======================
-       RESPONSIVE
+       SOCIAL LINKS FOOTER
        ====================== */
+ .social-links {
+  width: 100%;
+  max-width: 1200px;
+  margin: 120px auto 48px auto;
+  padding: 24px 24px; /* match container padding */
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+    .social-btn {
+      font-size: 1.5rem;
+      color: var(--muted);
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .social-btn:hover {
+      color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
 
     @media (max-width: 900px) {
-      .text,
-      .carousel {
-        grid-column: 1 / -1;
-      }
+      .text, .terminal { grid-column: 1 / -1; }
     }
   </style>
 </head>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <body>
 
-  <!-- NAVBAR -->
   <div class="navbar">
-    <div class="navbar-left">
-      <a href="index.html" >Samyak Chatterjee</a>
-    </div>
+    <div class="navbar-left"><a href="index.html">Samyak Chatterjee</a></div>
     <div class="navbar-right">
       <button class="nav-btn selected">Home</button>
       <button class="nav-btn" onclick="location.href='upcoming.html'">Upcoming</button>
@@ -318,76 +228,133 @@
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="container">
-
     <div class="text">
       <h1>Hello, I'm Samyak</h1>
-      <p>
-        I'm a 15 year old developer and designer and that focuses on building mini projects to help with my daily life. I have experience with React, React Native, SwiftUI, Python, and more. My main technical focus is on my app Task Panda, visible in the upcoming page.
-      </p>
-      <p>
-        Currently I am working on learning <a style="color: var(--accent-blue); font-style: italic;" href="upcoming.html">AWS authentication and integration</a>
-      </p>
-      <div >
-        <!-- <a class="cta" href="design.html">Design work</a> -->
+      <p>I'm a 15 year old developer and designer that focuses on building mini projects to help with my daily life. Experience in React, React Native, SwiftUI, and Python.</p>
+      <p>Currently learning <a href="upcoming.html" style="color: var(--accent-blue); font-style: italic;">AWS authentication</a>.</p>
+      <div>
         <a class="cta2" href="upcoming.html">In progress</a>
-        <a class="cta" href="project.html">Finished projects</a>
+        <a class="cta" href="project.html">Projects</a>
         <a class="cta2" href="https://github.com/samyakchat">Git</a>
-        
       </div>
-      
     </div>
 
-    <div class="carousel">
-      <div class="img-box center"><img src="images/premire.png"></div>
-      <div class="img-box semi-left-3"><img src="images/illustrator.png"></div>
-      <div class="img-box semi-left-2"><img src="images/figma.png"></div>
-      <div class="img-box semi-left-1"><img src="images/python.png"></div>
-      <div class="img-box semi-right-1"><img src="images/html.png"></div>
-      <div class="img-box semi-right-2"><img src="images/reactLogo.png"></div>
-      <div class="img-box semi-right-3"><img src="images/javascript.png"></div>
+    <div class="terminal">
+      <div class="terminal-header">terminal - samyak</div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-line" style="color: var(--muted); font-size: 0.75rem; margin-bottom: 20px;">
+          SYSTEM ACTIVE // TYPE 'HELP' FOR COMMANDS
+        </div>
+        <div class="terminal-input-wrap">
+          <span>&gt;</span>
+          <input type="text" class="terminal-input" id="termInput" autofocus spellcheck="false" autocomplete="off">
+       
+        </div>
+      </div>
     </div>
 
+  <div class="social-links">
+    <a href="https://github.com/samyakchat" class="social-btn" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/" class="social-btn" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+    <a href="https://www.instagram.com/samyakchat/" class="social-btn" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+    <a href="mailto:samyakchat@gmail.com" class="social-btn"><ion-icon name="mail"></ion-icon></a>
   </div>
 
-  <!-- FOOTER -->
-  <div class="contact">
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-      <a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-      <a href="https://www.instagram.com/samyakchat/">@samyakchat</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
-      <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">LinkedIn</a>
-    </div>
-  </div>
-
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  
   <script>
-    const boxes = document.querySelectorAll('.img-box');
-    let positions = [
-      'center',
-      'semi-left-3',
-      'semi-left-2',
-      'semi-left-1',
-      'semi-right-1',
-      'semi-right-2',
-      'semi-right-3'
-    ];
+    const input = document.getElementById('termInput');
+    const body = document.getElementById('terminalBody');
 
-    function rotateCarousel() {
-      positions.unshift(positions.pop());
-      boxes.forEach((box, i) => {
-        box.className = 'img-box ' + positions[i];
-      });
-    }
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const fullVal = input.value.toLowerCase().trim();
+        
+        // Create history line
+        const line = document.createElement('div');
+        line.className = 'terminal-line';
+        line.innerHTML = `<span style="opacity: 0.5;">&gt; ${input.value}</span>`;
+        body.insertBefore(line, input.parentElement);
 
-    setInterval(rotateCarousel, 2200);
+        const response = document.createElement('div');
+        response.className = 'terminal-line';
+        response.style.marginBottom = "12px";
+
+        // Logic Switch
+        if (fullVal === 'help') {
+            response.innerHTML = `
+                Available Commands:<br>
+                - about<br>
+                - git<br>
+                - contact<br>
+                - favorite<br>
+                - go to /page<br>
+                - a few more
+            `;
+        } 
+        else if (fullVal === 'about') {
+            response.innerText = "15-year-old developer/designer focusing on utility-based mini projects. Built Task Panda.";
+        }
+        else if (fullVal === 'git') {
+            response.innerText = "Opening GitHub...";
+            setTimeout(() => window.open('https://github.com/samyakchat', '_blank'), 800);
+        }
+        else if (fullVal === 'contact') {
+            response.innerHTML = "Email: samyakchat@gmail.com<br>Insta: @samyakchat<br>LinkedIn: Samyak Chatterjee";
+        }
+        else if (fullVal === 'favorite') {
+            response.innerText = "Navigating to favorites...";
+            setTimeout(() => window.location.href = 'upcoming.html', 500);
+        } 
+        else if (fullVal.includes('rm -rf')) {
+            response.innerText = "nice try";
+            
+        } 
+        else if (fullVal.startsWith('go to /')) {
+            const destination = fullVal.replace('go to /', '');
+            const pages = {
+                'home': 'index.html',
+                'upcoming': 'upcoming.html',
+                'projects': 'project.html',
+                'about': 'about.html'
+            };
+
+            if (pages[destination]) {
+                response.innerText = `Navigating to ${destination}...`;
+                setTimeout(() => window.location.href = pages[destination], 500);
+            } else {
+                response.innerText = 'Directory not found. Try /projects or /about.';
+            }
+        } 
+        else if (fullVal === 'clear') {
+            const lines = body.querySelectorAll('.terminal-line');
+            lines.forEach(l => l.remove());
+            input.value = '';
+            return;
+        }
+        else if (fullVal === "dir") {
+          response.innerText = "this isnt windows ";
+        }
+        else if (fullVal === "ls") {
+          response.innerHTML = `home<br>
+                upcoming<br>
+                projects<br>
+               about
+                `;
+        }
+        else {
+            response.innerText = "Command unknown. Type 'help' for a list of commands.";
+        }
+
+        body.insertBefore(response, input.parentElement);
+        input.value = '';
+        body.scrollTop = body.scrollHeight;
+      }
+    });
+
+    // Auto-focus terminal on click
+    document.querySelector('.terminal').addEventListener('click', () => input.focus());
   </script>
-
 </body>
 </html>
