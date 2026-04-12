@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About — Samyak Chatterjee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
   <link rel="icon" href="icons/logosss.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
-      --bg: #F3EEEC;
+      --bg: #F9F6F6;
       --surface: #ffffff;
       --border: #9CAAA5;
       --text: #3E3D37;
@@ -18,7 +21,35 @@
       --accent-gold: #895F47;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .social-links {
+      width: 100%;
+      max-width: 1200px;
+      margin: 60px auto 48px auto;
+      padding: 24px 24px;
+      /* match container padding */
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .social-btn {
+      font-size: 1.5rem;
+      color: var(--muted);
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .social-btn:hover {
+      color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       margin: 0;
@@ -27,7 +58,10 @@
       font-family: 'Open Sans', sans-serif;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     /* NAVBAR */
     .navbar {
@@ -46,9 +80,16 @@
       font-weight: 700;
       letter-spacing: -0.02em;
     }
-    .navbar-left a:hover { color: var(--accent-blue); transition: 0.3s; }
 
-    .navbar-right { display: flex; gap: 32px; }
+    .navbar-left a:hover {
+      color: var(--accent-blue);
+      transition: 0.3s;
+    }
+
+    .navbar-right {
+      display: flex;
+      gap: 32px;
+    }
 
     .nav-btn {
       background: none;
@@ -61,7 +102,10 @@
       position: relative;
     }
 
-    .nav-btn.selected { color: var(--accent-blue); }
+    .nav-btn.selected {
+      color: var(--accent-blue);
+    }
+
     .nav-btn.selected::after {
       content: "";
       position: absolute;
@@ -187,15 +231,40 @@
       color: var(--muted);
     }
 
-    .contact-item { display: flex; align-items: center; gap: 8px; }
-    .contact img { width: 20px; height: 20px; filter: grayscale(1); opacity: 0.7; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact img {
+      width: 20px;
+      height: 20px;
+      filter: grayscale(1);
+      opacity: 0.7;
+    }
 
     @media (max-width: 600px) {
-      .container { margin: 40px 16px; }
-      .timeline-item { padding-left: 50px; }
-      .timeline-container::before { left: 15px; }
-      .timeline-dot { left: 6px; }
-      .timeline-box::before { width: 10px; left: -10px; }
+      .container {
+        margin: 40px 16px;
+      }
+
+      .timeline-item {
+        padding-left: 50px;
+      }
+
+      .timeline-container::before {
+        left: 15px;
+      }
+
+      .timeline-dot {
+        left: 6px;
+      }
+
+      .timeline-box::before {
+        width: 10px;
+        left: -10px;
+      }
     }
   </style>
 </head>
@@ -218,11 +287,14 @@
     </div>
 
     <p class="intro-text">
-      Welcome to my journey (about computer science) I've been exploring the world of software development since middle school, moving from simple scripts to what's about to be a full-stack application ready for production. Here is a timeline of the milestones and projects that have shaped my skills so far. Note, between these projects are many mini projects I used to learn along the way.
+      Welcome to my journey (about computer science) I've been exploring the world of software development since middle
+      school, moving from simple scripts to what's about to be a full-stack application ready for production. Here is a
+      timeline of the milestones and projects that have shaped my skills so far. Note, between these projects are many
+      mini projects I used to learn along the way.
     </p>
 
     <div class="timeline-container">
-      
+
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-box">
@@ -235,7 +307,8 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">2023</span>
-          <p class="timeline-content">Python seemed to stick and in 7th grade I made <u><a href="project.html#project1">LifeLine</a></u>. Around this time I started to investigate AI.</p>
+          <p class="timeline-content">Python seemed to stick and in 7th grade I made <u><a
+                href="project.html#project1">LifeLine</a></u>. Around this time I started to investigate AI.</p>
         </div>
       </div>
 
@@ -243,7 +316,8 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">2023 - 2024</span>
-          <p class="timeline-content">I made a few smaller undocumented projects, such as a mini help screen for my MacBook that allowed touchscreen control via a Python program.</p>
+          <p class="timeline-content">I made a few smaller undocumented projects, such as a mini help screen for my
+            MacBook that allowed touchscreen control via a Python program.</p>
         </div>
       </div>
 
@@ -251,7 +325,8 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">2023</span>
-          <p class="timeline-content">Once my Python skills were strong, I entered a coding competition and won 3rd place competing against multiple states.</p>
+          <p class="timeline-content">Once my Python skills were strong, I entered a coding competition and won 3rd
+            place competing against multiple states.</p>
         </div>
       </div>
 
@@ -259,7 +334,8 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">2024 - 2025</span>
-          <p class="timeline-content">Competed in FBLA for coding and programming and created <u><a href="project.html#project3">Money-Mate</a></u>, where I first learned to incorporate AI.</p>
+          <p class="timeline-content">Competed in FBLA for coding and programming and created <u><a
+                href="project.html#project3">Money-Mate</a></u>, where I first learned to incorporate AI.</p>
         </div>
       </div>
 
@@ -267,7 +343,10 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">2025</span>
-          <p class="timeline-content">Attended various hackathons and won 3rd place at HackForsyth with me and my partners project  <a href="project.html#project2">"<u>Project Whisper</u>".</a> I also finished <u><a href="project.html#project2">Kitchen-Mate</a></u> and explored mobile development with SwiftUI to build <u><a href="upcoming.html#project1">Subhub</a></u>.</p>
+          <p class="timeline-content">Attended various hackathons and won 3rd place at HackForsyth with me and my
+            partners project <a href="project.html#project2">"<u>Project Whisper</u>".</a> I also finished <u><a
+                href="project.html#project2">Kitchen-Mate</a></u> and explored mobile development with SwiftUI to build
+            <u><a href="upcoming.html#project1">Subhub</a></u>.</p>
         </div>
       </div>
 
@@ -275,27 +354,28 @@
         <div class="timeline-dot"></div>
         <div class="timeline-box">
           <span class="timeline-date">Present to 2026</span>
-          <p class="timeline-content">I went to FBLA RLC, winning 1st for <u><a href="project.html#project2">Astromath</a></u>. I am now currently expanding into full-stack mobile development with React Native and AWS for <u><a href="upcoming.html#project2">Task Panda</a></u>. To sharpen my web deployment skills, I also launched <u><a href="upcoming.html#project2">Colordrift</a></u>. This will not only help others, but simplify my UI process.</p>
+          <p class="timeline-content">I went to FBLA RLC, winning 1st for <u><a
+                href="project.html#project2">Astromath</a></u>. I am now currently expanding into full-stack mobile
+            development with React Native and AWS for <u><a href="upcoming.html#project2">Task Panda</a></u>. To sharpen
+            my web deployment skills, I also launched <u><a href="upcoming.html#project2">Colordrift</a></u>. This will
+            not only help others, but simplify my UI process.</p>
         </div>
       </div>
 
     </div>
   </div>
 
-  <div class="contact">
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-      <a href="mailto:samyakchat@gmail.com">samyakchat@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      <a href="https://www.instagram.com/samyakchat/">@samyakchat</a>
-    </div>
-    <div class="contact-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/">Samyak Chatterjee</a>
-    </div>
+  <div class="social-links">
+    <a href="https://github.com/samyakchat" class="social-btn" target="_blank"><ion-icon
+        name="logo-github"></ion-icon></a>
+    <a href="https://www.linkedin.com/in/samyak-chatterjee-74961b331/" class="social-btn" target="_blank"><ion-icon
+        name="logo-linkedin"></ion-icon></a>
+    <a href="https://www.instagram.com/samyakchat/" class="social-btn" target="_blank"><ion-icon
+        name="logo-instagram"></ion-icon></a>
+    <a href="mailto:samyakchat@gmail.com" class="social-btn"><ion-icon name="mail"></ion-icon></a>
   </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
 </body>
+
 </html>
