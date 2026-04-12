@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <noscript><script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script></noscript>
 
     <style>
       :root {
@@ -86,7 +88,7 @@
       }
 
       .nav-btn.selected {
-        color: var(--accent-blue); /* Sets text to blue */
+        color: var(--accent-blue);
       }
 
       .nav-btn.selected::after {
@@ -96,14 +98,253 @@
         bottom: -6px;
         width: 100%;
         height: 2px;
-        background: var(--accent-blue); /* Sets underline to blue */
+        background: var(--accent-blue);
       }
 
-      /* PROJECT SECTIONS */
-      .project-section {
+      /* SEARCH & FILTER SECTION */
+      .search-filter-container {
         max-width: 1200px;
-        margin: 120px auto 0;
-        padding: 0 24px;
+        margin: 40px auto 20px;
+        padding: 0 24px 24px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .search-box {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 10px 14px;
+        gap: 5px;
+        transition: all 0.2s ease;
+      }
+
+      .search-box:focus-within {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 3px rgba(43, 108, 187, 0.1);
+      }
+
+      .search-box ion-icon {
+        font-size: 1.2rem;
+        color: var(--muted);
+      }
+
+      .search-box input {
+        flex: 1;
+        border: none;
+        background: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.95rem;
+        color: var(--text);
+        outline: none;
+      }
+
+      .search-box input::placeholder {
+        color: var(--muted);
+      }
+
+      /* FILTER BUTTON & DROPDOWN */
+      .filter-button {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        position: relative;
+      }
+
+      .filter-button:hover {
+        border-color: var(--accent-blue);
+        color: var(--accent-blue);
+      }
+
+      .filter-button ion-icon {
+        font-size: 1.2rem;
+      }
+
+      /* FILTER DROPDOWN */
+      .filter-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        margin-top: 8px;
+        min-width: 220px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+      }
+
+      .filter-dropdown.active {
+        display: flex;
+      }
+
+      .filter-label {
+        padding: 12px 16px 8px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .filter-options {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .filter-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background 0.2s ease;
+        font-size: 0.9rem;
+      }
+
+      .filter-option:hover {
+        background: rgba(43, 108, 187, 0.08);
+      }
+
+      .filter-option input[type="checkbox"] {
+        cursor: pointer;
+        accent-color: var(--accent-blue);
+      }
+
+      /* PROJECTS DROPDOWN BUTTON */
+      .projects-wrapper {
+        position: relative;
+      }
+
+      .projects-button {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .projects-button:hover {
+        border-color: var(--accent-blue);
+        color: var(--accent-blue);
+      }
+
+      .projects-button ion-icon {
+        font-size: 1.2rem;
+      }
+
+      /* PROJECTS DROPDOWN */
+      .projects-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        margin-top: 8px;
+        min-width: 220px;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+      }
+
+      .projects-dropdown.active {
+        display: flex;
+      }
+
+      .projects-label {
+        padding: 12px 16px 8px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: var(--surface);
+      }
+
+      .projects-list-items {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .project-list-item {
+        padding: 8px 12px;
+        
+        
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        color: var(--text);
+      }
+
+      .project-list-item:hover {
+        background: rgba(43, 108, 187, 0.08);
+    
+        border-color: var(--accent-blue);
+        
+      }
+
+      .project-list-item.hidden {
+        display: none;
+      }
+
+      /* PROJECT LIST CONTAINER - removed for dropdown layout */
+      .project-list-container {
+        display: none;
+      }
+
+      /* PROJECTS GRID */
+      .projects-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px 60px;
+      }
+
+      /* PROJECT SECTION */
+      .project-section {
+        display: flex;
+        flex-direction: column;
+        scroll-margin-top: 100px;
       }
 
       .project-header {
@@ -126,17 +367,135 @@
         border-radius: 10px;
       }
 
-      .github-link {
-        display: inline-block;
-        margin-bottom: 12px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.2rem;
-        color: var(--accent-blue);
-        transition: ease-in 0.2s;
+      .project-meta {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 16px;
       }
-      .github-link:hover {
-        color: var(--accent-yellow);
-        transition: ease-in 0.2s;
+
+      .meta-box {
+        background: var(--surface);
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+        color: var(--text);
+      }
+
+      .visitlink {
+        background: var(--accent-blue);
+        border: 0.5px solid var(--bg);
+        border-radius: 2px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+        color: var(--bg);
+      }
+
+      .meta-box a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: inherit;
+        transition: all 0.2s ease;
+      }
+
+      .meta-box a:hover {
+        color: var(--surface);
+        background: var(--accent-blue);
+        padding: 8px 12px;
+        margin: -8px -12px;
+        border-radius: 2px;
+      }
+
+      .tech-section {
+        margin-bottom: 16px;
+      }
+
+      .tech-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tech-tag {
+        background: var(--surface);
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-family: "Open Sans", sans-serif;
+      }
+
+      /* Tech tag color variants */
+      .tech-tag.react {
+        background: #2b6cbb20;
+        border-color: #2b6cbb;
+        color: #2b6cbb;
+      }
+
+      .tech-tag.javascript {
+        background: #b8860b20;
+        border-color: #b8860b;
+        color: #b8860b;
+      }
+
+      .tech-tag.css {
+        background: #7c6e6520;
+        border-color: #9caaa5;
+        color: #3e3d37;
+      }
+
+      .tech-tag.sql {
+        background: #d9770620;
+        border-color: #d97706;
+        color: #d97706;
+      }
+
+      .tech-tag.python,
+      .tech-tag.tkinter,
+      .tech-tag.hardware,
+      .tech-tag.calling-api {
+        background: #c5303020;
+        border-color: #c53030;
+        color: #c53030;
+      }
+
+      .tech-tag.ai {
+        background: #05966920;
+        border-color: #059669;
+        color: #059669;
+      }
+
+      .tech-tag.ios {
+        background: #7c3aed20;
+        border-color: #7c3aed;
+        color: #7c3aed;
+      }
+
+      .tech-tag.typescript {
+        background: #2b6cbb20;
+        border-color: #2b6cbb;
+        color: #2b6cbb;
       }
 
       .project-section p {
@@ -164,7 +523,7 @@
       }
 
       .gallery-toggle:hover {
-        color: var(--accent-yellow);
+        color: var(--accent-gold);
       }
 
       .gallery-toggle-icon {
@@ -194,19 +553,21 @@
         max-height: 0;
         opacity: 0;
         margin-top: 0;
+        margin-bottom: 0;
       }
 
       .gallery-item {
         background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 10px;
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
         overflow: hidden;
-        transition: transform 0.3s ease, border-color 0.3s ease;
+        transition: border 0.3s ease;
+        cursor: pointer;
       }
 
       .gallery-item:hover {
-        transform: translateY(-6px);
-        border-color: var(--accent-yellow);
+        border: 2px solid var(--accent-blue);
+        border-radius: 2px;
       }
 
       .gallery-image {
@@ -214,6 +575,87 @@
         height: auto;
         display: block;
         background-color: var(--surface);
+        cursor: pointer;
+      }
+
+      /* IMAGE MODAL */
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .image-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-modal-content {
+        position: relative;
+        max-width: 85vw;
+        max-height: 85vh;
+        animation: slideIn 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-modal-content img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+
+      .image-modal-close {
+        position: absolute;
+        top: -50px;
+        right: -10px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s ease;
+      }
+
+      .image-modal-close:hover {
+        color: var(--accent-blue);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
 
       .gallery-description {
@@ -231,6 +673,20 @@
         font-size: 0.85rem;
         color: var(--muted);
         line-height: 1.5;
+        margin: 0;
+      }
+
+      /* SUBHUB COLLAPSIBLE SECTION */
+      .subhub-content {
+        max-height: 2000px;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        opacity: 1;
+      }
+
+      .subhub-content.hidden {
+        max-height: 0;
+        opacity: 0;
       }
 
       /* FOOTER */
@@ -257,9 +713,59 @@
         filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
       }
 
+      /* Filter wrapper for positioning */
+      .filter-wrapper {
+        position: relative;
+      }
+
+      /* Scrollbar styling for project list */
+      .project-list::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .project-list::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .project-list::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 3px;
+      }
+
+      .project-list::-webkit-scrollbar-thumb:hover {
+        background: var(--muted);
+      }
+
       @media (max-width: 900px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 80px 0;
+        }
+
         .gallery-container {
           grid-template-columns: 1fr;
+        }
+
+        .project-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .project-list-container {
+          flex-direction: column;
+        }
+
+        .project-list {
+          width: 100%;
+          max-height: 200px;
+        }
+
+        .search-filter-container {
+          flex-direction: column;
+        }
+
+        .search-box {
+          width: 100%;
+          min-width: unset;
         }
       }
     </style>
@@ -285,421 +791,540 @@
       </div>
     </div>
 
-    <!-- Colordrift -->
-    <div class="project-section">
-      <div class="project-header">
-        <h1>Colordrift</h1>
+    <!-- SEARCH & FILTER SECTION -->
+    <div class="search-filter-container">
+      <div class="search-box">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" id="searchInput" placeholder="Search projects..." />
       </div>
-
-      <div
-        style="
-          display: flex;
-          gap: 24px;
-          align-items: flex-start;
-          margin-bottom: 12px;
-        "
-      >
-        <span style="color: var(--accent-yellow)" class="github-link">2026</span
-        ><a
-          class="github-link"
-          href="https://colordrift.vercel.app/"
-          target="_blank"
-          >Made with React, View link</a
-        >
+      <div class="filter-wrapper">
+        <button class="filter-button" id="filterBtn">
+          <ion-icon name="options-outline"></ion-icon>
+          Filter
+        </button>
+        <div class="filter-dropdown" id="filterDropdown">
+          <div class="filter-label">Technologies</div>
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" value="react" />
+              <span>React</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="typescript" />
+              <span>TypeScript</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="python" />
+              <span>Python</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="swiftui" />
+              <span>SwiftUI</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="sql" />
+              <span>SQL</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="tkinter" />
+              <span>Tkinter</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" value="tailwind" />
+              <span>Tailwind CSS</span>
+            </label>
+          </div>
+        </div>
       </div>
-
-      <p>
-        When designing Ul, the process shouldn't be hindered by the search for the right colors. Colordrift is simple, you can search up any color, explore variations, preview frontend components, and copy code for platforms.
-Additionally, you can explore randomly generated color palettes with themes that change every day, save them to your favorites to explore later, and view them in action with our web view feature. 
-Made with React, it was a simple project I even used for the colors on this project.      
-</p>
-
-      <button class="gallery-toggle" onclick="toggleGallery(this)">
-        <svg
-          class="gallery-toggle-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-        View Images
-      </button>
-
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="images/colordrift/home.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Homescreen</h3>
-            <p>Here it spells out examples of using the website.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/colordrift/palettes.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>The Palettes</h3>
-            <p>The Palette page shows randomly generated palettes in categories that change daily.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/colordrift/saved.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Saved Palettes</h3>
-            <p>
-              Save your favorites to explore later, and view them in action with our web view feature.
-            </p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/colordrift/colors1.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Color Page</h3>
-            <p>
-              When you search a color, there are many variations of such.
-            </p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/colordrift/colors2.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Color Page (scrolled down)</h3>
-            <p>
-              This is the component view section to see colors in action as their role, and copy code for platforms (not shown).
-            </p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/colordrift/webview.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Web View</h3>
-            <p>
-              Here you can customize palettes and see them in a real website with different front end components, making the perfect palette.
-            </p>
+      <div class="projects-wrapper">
+        <button class="projects-button" id="projectsBtn">
+          <ion-icon name="list-outline"></ion-icon>
+          Projects
+        </button>
+        <div class="projects-dropdown" id="projectsDropdown">
+          <div class="projects-label"> Projects (new to old)</div>
+          <div class="projects-list-items">
+            <div class="project-list-item" data-project="colordrift">Colordrift</div>
+            <div class="project-list-item" data-project="kitchen-mate">Kitchen-mate</div>
+            <div class="project-list-item" data-project="subhub">SubHub</div>
+            <div class="project-list-item" data-project="money-mate">Money-Mate</div>
+            <div class="project-list-item" data-project="lifeline">LifeLine</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Kitchen-mate -->
-    <div class="project-section">
-      <div class="project-header">
-        <h1>Kitchen-mate</h1>
-      </div>
-
-      <div
-        style="
-          display: flex;
-          gap: 24px;
-          align-items: flex-start;
-          margin-bottom: 12px;
-        "
-      >
-        <span style="color: var(--accent-yellow)" class="github-link">2025</span
-        ><a
-          class="github-link"
-          href="https://github.com/samyakchat/KitchenMate/"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-
-      <p>
-        A small device that was made to help around the kitchen all with a
-        touchscreen. Making a casserole? Find the best recipe based on any
-        region through our MasterChef app, manage the ingredients with the
-        PantryPal app, and time your dishes in the oven with Timer. If you are
-        ever bored in the process, play Wordle, check the weather, or listen to
-        music!
-      </p>
-
-      <button class="gallery-toggle" onclick="toggleGallery(this)">
-        <svg
-          class="gallery-toggle-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-        View Images
-      </button>
-
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="images/home_screen.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Homescreen</h3>
-            <p>This is where the apps are held, inside the collapsable bar.</p>
+    <!-- PROJECTS GRID -->
+      <div class="projects-grid">
+        <!-- Colordrift -->
+        <div class="project-section" id="colordrift" data-tech="react,typescript,tailwind">
+          <div class="project-header">
+            <h1>Colordrift</h1>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/inusekitchen.jpeg" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Example of use</h3>
-            <p>Currently in my kitchen, it's used everyday to make food.</p>
+
+          <div class="tech-section">
+            <span class="tech-label">Technologies</span>
+            <div class="tech-tags">
+              <span class="tech-tag react">React</span>
+              <span class="tech-tag typescript">TypeScript</span>
+              <span class="tech-tag react">Tailwind CSS</span>
+              <span class="tech-tag css">Vercel Analytics</span>
+              <span class="tech-tag ai">colormind.io API</span>
+              <span class="tech-tag ai">The Color API</span>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/3Dmodels.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>3D-case model</h3>
-            <p>
-              I made a case with the specific device in mind, including screen
-              and ribbon cables that connect the computer together.
-            </p>
+
+          <div class="project-meta">
+            <div class="meta-box">
+              <span>2026</span>
+            </div>
+            <div class="visitlink">
+              <a href="https://colordrift.vercel.app/" target="_blank">
+                Visit Website!
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/masterchef.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Recipe Finder app</h3>
-            <p>
-              This is one of the revolutionary apps that holds over 115 Thousand
-              recipes and menus.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- SubHub -->
-    <div class="project-section">
-      <div class="project-header">
-        <h1>SubHub</h1>
-        <img src="images/subhublogo.png" alt="SubHub" />
-      </div>
+          <p>
+            When designing Ul, the process shouldn't be hindered by the search for
+            the right colors. Colordrift is simple, you can search up any color,
+            explore variations, preview frontend components, and copy code for
+            platforms. Additionally, you can explore randomly generated color
+            palettes with themes that change every day, save them to your
+            favorites to explore later, and view them in action with our web view
+            feature. Made with React, it was a simple project I even used for the
+            colors on this project.
+          </p>
 
-      <div
-        style="
-          display: flex;
-          gap: 24px;
-          align-items: flex-start;
-          margin-bottom: 12px;
-        "
-      >
-        <span style="color: var(--accent-yellow)" class="github-link"
-          >2024-2025</span
-        >
-        <a class="github-link">Made with SwiftUI, SQL</a>
-      </div>
+          <button class="gallery-toggle closed" onclick="toggleGallery(this)">
+            <svg
+              class="gallery-toggle-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            View Images
+          </button>
 
-      <p>
-        To learn SwiftUI, I created SubHub as a simple subscription manager.
-        <br /><br />
-        Do you struggle with keeping up with subscriptions you didnt know you
-        had? Subhub makes it easy to see these and pay so you don't waste money
-        on subscriptions you don't need. For me, I used SubHub to learn how to
-        use SQL on Swift, as well as learn SwiftUI in general.
-      </p>
-
-      <div
-        style="
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
-          margin-top: 48px;
-        "
-      >
-        <div class="gallery-item">
-          <img src="images/subhub/subadd.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Add Modal</h3>
-            <p>
-              This is a modal where you fill out parameters for a subscription.
-            </p>
+          <div class="gallery-container hidden">
+            <div class="gallery-item">
+              <img src="images/colordrift/home.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Homescreen</h3>
+                <p>Here it spells out examples of using the website.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/colordrift/palettes.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>The Palettes</h3>
+                <p>
+                  The Palette page shows randomly generated palettes in categories
+                  that change daily.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/colordrift/saved.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Saved Palettes</h3>
+                <p>
+                  Save your favorites to explore later, and view them in action
+                  with our web view feature.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/colordrift/colors1.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Color Page</h3>
+                <p>When you search a color, there are many variations of such.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/colordrift/colors2.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Color Page (scrolled down)</h3>
+                <p>
+                  This is the component view section to see colors in action as
+                  their role, and copy code for platforms (not shown).
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/colordrift/webview.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Web View</h3>
+                <p>
+                  Here you can customize palettes and see them in a real website
+                  with different front end components, making the perfect palette.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="gallery-item">
-          <img src="images/subhub/subhub.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Main Screen</h3>
-            <p>This is where you view subscriptions organized by priotity.</p>
+        <!-- Kitchen-mate -->
+        <div class="project-section" id="kitchen-mate" data-tech="python,tkinter">
+          <div class="project-header">
+            <h1>Kitchen-mate</h1>
+          </div>
+
+          <div class="tech-section">
+            <span class="tech-label">Technologies</span>
+            <div class="tech-tags">
+              <span class="tech-tag python">Python</span>
+              <span class="tech-tag tkinter">Tkinter</span>
+              <span class="tech-tag hardware">Raspberry Pi (4gb, 1.5Ghz)</span>
+              <span class="tech-tag python">Pygame</span>
+              <span class="tech-tag ai">Apple music API</span>
+              <span class="tech-tag ai">Open Weather API</span>
+              <span class="tech-tag ai">Spoonacular API</span>
+            </div>
+          </div>
+
+          <div class="project-meta">
+            <div class="meta-box">
+              <span>2025</span>
+            </div>
+            <div class="meta-box">
+              <a
+                href="https://github.com/samyakchat/KitchenMate/"
+                target="_blank"
+              >
+                <ion-icon name="logo-github" style="font-size: 1rem;"></ion-icon>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <p>
+            A small device that was made to help around the kitchen all with a
+            touchscreen. Making a casserole? Find the best recipe based on any
+            region through our MasterChef app, manage the ingredients with the
+            PantryPal app, and time your dishes in the oven with Timer. If you are
+            ever bored in the process, play Wordle, check the weather, or listen
+            to music!
+          </p>
+
+          <button class="gallery-toggle closed" onclick="toggleGallery(this)">
+            <svg
+              class="gallery-toggle-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            View Images
+          </button>
+
+          <div class="gallery-container hidden">
+            <div class="gallery-item">
+              <img src="images/home_screen.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Homescreen</h3>
+                <p>
+                  This is where the apps are held, inside the collapsable bar.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/inusekitchen.jpeg" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Example of use</h3>
+                <p>Currently in my kitchen, it's used everyday to make food.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/3Dmodels.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>3D-case model</h3>
+                <p>
+                  I made a case with the specific device in mind, including screen
+                  and ribbon cables that connect the computer together.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/masterchef.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Recipe Finder app</h3>
+                <p>
+                  This is one of the revolutionary apps that holds over 115
+                  Thousand recipes and menus.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="gallery-item">
-          <img src="images/subhub/subedit.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Edit Mode</h3>
-            <p>Like in any IOS app, you can remove subscriptions</p>
+        <!-- SubHub -->
+        <div class="project-section" id="subhub" data-tech="swiftui,sql">
+          <div class="project-header">
+            <h1>SubHub</h1>
+            <img src="images/subhublogo.png" alt="SubHub" />
+          </div>
+
+          <div class="tech-section">
+            <span class="tech-label">Technologies</span>
+            <div class="tech-tags">
+              <span class="tech-tag ios">SwiftUI</span>
+              <span class="tech-tag sql">SwiftSQL</span>
+              <span class="tech-tag ios">iOS</span>
+            </div>
+          </div>
+
+          <div class="project-meta">
+            <div class="meta-box">
+              <span>2024-2025</span>
+            </div>
+          </div>
+
+          <p>
+            To learn SwiftUI, I created SubHub as a simple subscription manager.
+            <br /><br />
+            Do you struggle with keeping up with subscriptions you didnt know you
+            had? Subhub makes it easy to see these and pay so you don't waste
+            money on subscriptions you don't need. For me, I used SubHub to learn
+            how to use SQL on Swift, as well as learn SwiftUI in general.
+          </p>
+
+          <button class="gallery-toggle closed" onclick="toggleSubHub(this)">
+            <svg
+              class="gallery-toggle-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            View Images
+          </button>
+
+          <div class="subhub-content hidden">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+                margin-top: 0;
+              "
+            >
+              <div class="gallery-item">
+                <img src="images/subhub/subadd.png" class="gallery-image" />
+                <div class="gallery-description">
+                  <h3>Add Modal</h3>
+                  <p>
+                    This is a modal where you fill out parameters for a
+                    subscription.
+                  </p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <img src="images/subhub/subhub.png" class="gallery-image" />
+                <div class="gallery-description">
+                  <h3>Main Screen</h3>
+                  <p>
+                    This is where you view subscriptions organized by priotity.
+                  </p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <img src="images/subhub/subedit.png" class="gallery-image" />
+                <div class="gallery-description">
+                  <h3>Edit Mode</h3>
+                  <p>Like in any IOS app, you can remove subscriptions</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Money-Mate -->
-    <div class="project-section">
-      <div class="project-header">
-        <h1>Money-Mate</h1>
-      </div>
+        <!-- Money-Mate -->
+        <div class="project-section" id="money-mate" data-tech="python,tkinter,sql">
+          <div class="project-header">
+            <h1>Money-Mate</h1>
+          </div>
 
-      <div
-        style="
-          display: flex;
-          gap: 24px;
-          align-items: flex-start;
-          margin-bottom: 12px;
-        "
-      >
-        <span style="color: var(--accent-yellow)" class="github-link"
-          >2024-2025</span
-        ><a
-          class="github-link"
-          href="https://github.com/samyakchat/Money-Mate/"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
+          <div class="tech-section">
+            <span class="tech-label">Technologies</span>
+            <div class="tech-tags">
+              <span class="tech-tag python">Python</span>
+              <span class="tech-tag tkinter">Tkinter</span>
+              <span class="tech-tag tkinter">Py-QT module</span>
+              <span class="tech-tag ai">Gemini API (Fast)</span>
+              <span class="tech-tag sql">SQL</span>
+            </div>
+          </div>
 
-      <p>
-        A tk-inter based app made for student spending. It tracks student
-        spending and has advanced and basic features. To add transactions you
-        can either manually fill in fields, or talk about your day. When you
-        talk about your day the AI will then create transactions for you making
-        your job easier. Some more basic features are filtered search, summary
-        generator, and view filtered transactions.
-      </p>
+          <div class="project-meta">
+            <div class="meta-box">
+              <span>2024-2025</span>
+            </div>
+            <div class="meta-box">
+              <a href="https://github.com/samyakchat/Money-Mate/" target="_blank">
+                <ion-icon name="logo-github" style="font-size: 1rem;"></ion-icon>
+                GitHub
+              </a>
+            </div>
+          </div>
 
-      <button class="gallery-toggle" onclick="toggleGallery(this)">
-        <svg
-          class="gallery-toggle-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-        View Images
-      </button>
+          <p>
+            A tk-inter based app made for student spending. It tracks student
+            spending and has advanced and basic features. To add transactions you
+            can either manually fill in fields, or talk about your day. When you
+            talk about your day the AI will then create transactions for you
+            making your job easier. Some more basic features are filtered search,
+            summary generator, and view filtered transactions.
+          </p>
 
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="images/homecropped.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Basic UI</h3>
-            <p>
-              This shows an intro screen that gets the gist of the modern UI
-              through the app.
-            </p>
+          <button class="gallery-toggle closed" onclick="toggleGallery(this)">
+            <svg
+              class="gallery-toggle-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            View Images
+          </button>
+
+          <div class="gallery-container hidden">
+            <div class="gallery-item">
+              <img src="images/homecropped.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Basic UI</h3>
+                <p>
+                  This shows an intro screen that gets the gist of the modern UI
+                  through the app.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/profilecropped.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Manage Profiles</h3>
+                <p>Manage up to 3 profiles all kept locally with SQL.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/tellus.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>AI integration</h3>
+                <p>
+                  This is our built-in AI that takes information about your day
+                  and automatically puts in your purchases and income
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/chatbot.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>ChatBot</h3>
+                <p>
+                  This is a chatbot that answers any questions in any form u ask
+                  it
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/profilecropped.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Manage Profiles</h3>
-            <p>Manage up to 3 profiles all kept locally with SQL.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/tellus.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>AI integration</h3>
-            <p>
-              This is our built-in AI that takes information about your day and
-              automatically puts in your purchases and income
-            </p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/chatbot.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>ChatBot</h3>
-            <p>
-              This is a chatbot that answers any questions in any form u ask it
-            </p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/moneyuibut.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>ButtonUI</h3>
-            <p>All handmade UI for buttons.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- LifeLine -->
-    <div class="project-section">
-      <div class="project-header">
-        <h1>LifeLine</h1>
-      </div>
-
-      <div
-        style="
-          display: flex;
-          gap: 24px;
-          align-items: flex-start;
-          margin-bottom: 12px;
-        "
-      >
-        <span style="color: var(--accent-yellow)" class="github-link">2023</span
-        ><a
-          class="github-link"
-          href="https://github.com/samyakchat/LifeLine/"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-
-      <p>
-        A Python application that could be run anywhere. It's meant for the
-        elderly population that needs assistance from a nurse or caretaker. At
-        the chance a caretaker is away from the patient, the patient can call
-        for the caretaker, call for a cast of nurses, or call for specific
-        people. The defaults are Lady and Man, but can be customized to anybody.
-      </p>
-
-      <button class="gallery-toggle" onclick="toggleGallery(this)">
-        <svg
-          class="gallery-toggle-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-        View Images
-      </button>
-
-      <div class="gallery-container">
-        <div class="gallery-item">
-          <img src="images/alertss.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Main UI</h3>
-            <p>
-              The primary dashboard with 4 easy to read and tap buttons; Made
-              for a touchscreen.
-            </p>
+        <!-- LifeLine -->
+        <div class="project-section" id="lifeline" data-tech="python,tkinter">
+          <div class="project-header">
+            <h1>LifeLine</h1>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/numberss.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Contacts</h3>
-            <p>You can contact up to 4 numbers with AlertAll.</p>
+
+          <div class="tech-section">
+            <span class="tech-label">Technologies</span>
+            <div class="tech-tags">
+              <span class="tech-tag python">Python</span>
+              <span class="tech-tag tkinter">Tkinter</span>
+              <span class="tech-tag calling-api">Twillio API</span>
+              <span class="tech-tag calling-api">Raspberry Pi</span>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/exmapleimage.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>In-Use</h3>
-            <p>This is it being used for my Grandma</p>
+
+          <div class="project-meta">
+            <div class="meta-box">
+              <span>2023</span>
+            </div>
+            <div class="meta-box">
+              <a href="https://github.com/samyakchat/LifeLine/" target="_blank">
+                <ion-icon name="logo-github" style="font-size: 1rem;"></ion-icon>
+                GitHub
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/textmessage.png" class="gallery-image" />
-          <div class="gallery-description">
-            <h3>Example Receipt</h3>
-            <p>
-              Along with calling and alarms playing, here is an example text
-              message
-            </p>
+
+          <p>
+            A Python application that could be run anywhere. It's meant for the
+            elderly population that needs assistance from a nurse or caretaker. At
+            the chance a caretaker is away from the patient, the patient can call
+            for the caretaker, call for a cast of nurses, or call for specific
+            people. The defaults are Lady and Man, but can be customized to
+            anybody.
+          </p>
+
+          <button class="gallery-toggle closed" onclick="toggleGallery(this)">
+            <svg
+              class="gallery-toggle-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+            View Images
+          </button>
+
+          <div class="gallery-container hidden">
+            <div class="gallery-item">
+              <img src="images/alertss.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Main UI</h3>
+                <p>
+                  The primary dashboard with 4 easy to read and tap buttons; Made
+                  for a touchscreen.
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/numberss.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Contacts</h3>
+                <p>You can contact up to 4 numbers with AlertAll.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/exmapleimage.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>In-Use</h3>
+                <p>This is it being used for my Grandma</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/textmessage.png" class="gallery-image" />
+              <div class="gallery-description">
+                <h3>Example Receipt</h3>
+                <p>
+                  Along with calling and alarms playing, here is an example text
+                  message
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -723,7 +1348,133 @@ Made with React, it was a simple project I even used for the colors on this proj
       </div>
     </div>
 
+    <!-- IMAGE MODAL -->
+    <div class="image-modal" id="imageModal">
+      <div class="image-modal-content">
+        <button class="image-modal-close" onclick="closeImageModal()">
+          &times;
+        </button>
+        <img id="modalImage" src="" alt="Enlarged image" />
+      </div>
+    </div>
+
     <script>
+      // ===== SEARCH & FILTER FUNCTIONALITY =====
+      const searchInput = document.getElementById("searchInput");
+      const filterBtn = document.getElementById("filterBtn");
+      const filterDropdown = document.getElementById("filterDropdown");
+      const projectsBtn = document.getElementById("projectsBtn");
+      const projectsDropdown = document.getElementById("projectsDropdown");
+      const filterCheckboxes = document.querySelectorAll(".filter-option input[type='checkbox']");
+      const projectSections = document.querySelectorAll(".project-section");
+      const projectListItems = document.querySelectorAll(".project-list-item");
+
+      // Toggle filter dropdown
+      filterBtn.addEventListener("click", () => {
+        filterDropdown.classList.toggle("active");
+        projectsDropdown.classList.remove("active");
+      });
+
+      // Toggle projects dropdown
+      projectsBtn.addEventListener("click", () => {
+        projectsDropdown.classList.toggle("active");
+        filterDropdown.classList.remove("active");
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".filter-wrapper")) {
+          filterDropdown.classList.remove("active");
+        }
+        if (!e.target.closest(".projects-wrapper")) {
+          projectsDropdown.classList.remove("active");
+        }
+      });
+
+      // Search functionality
+      searchInput.addEventListener("input", filterProjects);
+
+      // Filter checkbox functionality
+      filterCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", filterProjects);
+      });
+
+      function filterProjects() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedTechs = Array.from(filterCheckboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value);
+
+        projectSections.forEach((project) => {
+          const title = project.querySelector("h1").textContent.toLowerCase();
+          const description = project.querySelector("p").textContent.toLowerCase();
+          const projectTechs = project.dataset.tech.split(",");
+
+          // Check if project matches search term
+          const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+
+          // Check if project matches selected filters
+          const matchesFilters =
+            selectedTechs.length === 0 ||
+            selectedTechs.some((tech) => projectTechs.includes(tech.toLowerCase()));
+
+          const shouldShow = matchesSearch && matchesFilters;
+
+          // Show/hide project and corresponding list item
+          project.style.display = shouldShow ? "flex" : "none";
+          const projectId = project.id;
+          const listItem = document.querySelector(
+            `.project-list-item[data-project="${projectId}"]`
+          );
+          if (listItem) {
+            listItem.classList.toggle("hidden", !shouldShow);
+          }
+        });
+      }
+
+      // Project list item click to scroll to project
+      projectListItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const projectId = item.dataset.project;
+          const projectElement = document.getElementById(projectId);
+          if (projectElement && projectElement.style.display !== "none") {
+            projectElement.scrollIntoView({ behavior: "smooth" });
+            projectElement.style.animation = "pulse 0.5s ease";
+          }
+        });
+      });
+
+      // ===== IMAGE MODAL FUNCTIONS =====
+      function openImageModal(imageSrc) {
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        modalImage.src = imageSrc;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeImageModal() {
+        const modal = document.getElementById("imageModal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal when clicking outside the image
+      window.onclick = function (event) {
+        const modal = document.getElementById("imageModal");
+        if (event.target === modal) {
+          closeImageModal();
+        }
+      };
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeImageModal();
+        }
+      });
+
+      // ===== GALLERY TOGGLE FUNCTIONS =====
       function toggleGallery(button) {
         const gallery = button.nextElementSibling;
         gallery.classList.toggle("hidden");
@@ -736,8 +1487,51 @@ Made with React, it was a simple project I even used for the colors on this proj
         } else {
           button.innerHTML =
             '<svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>Hide Images';
+          // Add click handlers to all gallery images in this section
+          const galleryContainer = gallery;
+          const images = galleryContainer.querySelectorAll(".gallery-image");
+          images.forEach((img) => {
+            img.onclick = function (e) {
+              e.stopPropagation();
+              openImageModal(this.src);
+            };
+          });
         }
       }
+
+      function toggleSubHub(button) {
+        const content = button.nextElementSibling;
+        content.classList.toggle("hidden");
+        button.classList.toggle("closed");
+
+        // Change button text
+        if (content.classList.contains("hidden")) {
+          button.innerHTML =
+            '<svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>View Images';
+        } else {
+          button.innerHTML =
+            '<svg class="gallery-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>Hide Images';
+          // Add click handlers to all SubHub images
+          const images = content.querySelectorAll(".gallery-image");
+          images.forEach((img) => {
+            img.onclick = function (e) {
+              e.stopPropagation();
+              openImageModal(this.src);
+            };
+          });
+        }
+      }
+
+      // Add click handlers to all gallery images on page load
+      window.addEventListener("DOMContentLoaded", function () {
+        // Initially add handlers to all visible images
+        document.querySelectorAll(".gallery-image").forEach((img) => {
+          img.onclick = function (e) {
+            e.stopPropagation();
+            openImageModal(this.src);
+          };
+        });
+      });
     </script>
   </body>
 </html>
