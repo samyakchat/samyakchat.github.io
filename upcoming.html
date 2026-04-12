@@ -149,6 +149,75 @@
         color: var(--muted);
       }
 
+      /* TECH SECTION (copied from project.html) */
+      .tech-section {
+        margin-top: 30px;
+        margin-bottom: 16px;
+      }
+
+      .tech-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tech-tag {
+        background: var(--surface);
+        border: 0.5px solid var(--border);
+        border-radius: 2px;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-family: "Open Sans", sans-serif;
+      }
+
+      /* Relevant tech tag variants */
+      .tech-tag.react {
+        background: #2b6cbb20;
+        border-color: #2b6cbb;
+        color: #2b6cbb;
+      }
+
+      .tech-tag.typescript {
+        background: #2b6cbb20;
+        border-color: #2b6cbb;
+        color: #2b6cbb;
+      }
+
+      .tech-tag.ai {
+        background: #05966920;
+        border-color: #059669;
+        color: #059669;
+      }
+
+      .tech-tag.python {
+        background: #c5303020;
+        border-color: #c53030;
+        color: #c53030;
+      }
+
+      .tech-tag.sql {
+        background: #d9770620;
+        border-color: #d97706;
+        color: #d97706;
+      }
+
+      .tech-tag.ios {
+        background: #7c3aed20;
+        border-color: #7c3aed;
+        color: #7c3aed;
+      }
+
       /* ======================
        GALLERY
        ====================== */
@@ -170,7 +239,7 @@
 
       .gallery-item:hover {
         transform: translateY(-6px);
-        border-color: var(--accent-yellow);
+        border-color: var(--accent-gold);
       }
 
       .gallery-image {
@@ -262,9 +331,21 @@
         <img src="images/pandaimages/icon.png" alt="Task Panda" />
       </div>
 
-      <a class="github-link"
-        >Made with React Native and SQL (soon to incorporate AWS)</a
-      >
+      <div class="tech-section">
+       
+        <div class="tech-tags">
+          <span class="tech-tag react">React Native</span>
+          <span class="tech-tag typescript">TypeScript</span>
+          <span class="tech-tag ai">PostgreSQL</span>
+          <span class="tech-tag python">AWS S3</span>
+          <span class="tech-tag python">AWS Cognito</span>
+          <span class="tech-tag sql">SQL</span>
+          <span class="tech-tag ios">Kotlin (soon)</span>
+          <span class="tech-tag ios">Swift</span>
+        </div>
+      </div>
+
+      
 
       <p>
         Initially, I started the app to help myself with task management, but
@@ -272,44 +353,44 @@
         using AWS for authentication and object storage, while using PostgreSQL
         for the database.
         <br /><br />
-        Completing tasks is basic, but people need a structured way to complete
-        things in their life without burnout. Task Panda will offer many
-        features to help you focus on whats important, while having fun in our
-        interactive Panda Simulator. Task Panda offers features such as Hanging
+        Completing tasks is basic, but students need a structured way to complete
+        their school life without burnout. We help you become more focused on what matters, and realize
+        what holds you back. Task Panda offers features such as Hanging
         Deadlines, Schedule Automater, Ramble, and more features centered around
         students.
       </p>
 
       <div class="gallery-container">
         <div class="gallery-item">
-          <img src="images/pandaimages/1.png" class="gallery-image" />
+          <img src="images/pandaimages/1.PNG" class="gallery-image" />
           <div class="gallery-description">
             <h3>Ideal Homescreen (TODO)</h3>
             <p>
               This is what you will see every day when completing tasks. You can
-              have color tags, and repeating tasks.
+              have color tags, and repeating tasks. The page comes in many views, including a KanBan board.
             </p>
           </div>
         </div>
 
         <div class="gallery-item">
-          <img src="images/pandaimages/2.png" class="gallery-image" />
+          <img src="images/pandaimages/2.PNG" class="gallery-image" />
           <div class="gallery-description">
-            <h3>Completed Tasks</h3>
+            <h3>My Trail page</h3>
             <p>
-              This shows what you've completed today. When you enable repeating
-              tasks (Every day, or 2 days or week), they show with the symbol.
+              This is your page to check missions and deadlines, aka the neccesary, but not primary focus. Missions can 
+              be instances from a social studies project to starting a non profit, the organization is in your hands. Deadlines
+              hang over you as you browse.
             </p>
           </div>
         </div>
 
         <div class="gallery-item">
-          <img src="images/pandaimages/3.png" class="gallery-image" />
+          <img src="images/pandaimages/3.PNG" class="gallery-image" />
           <div class="gallery-description">
-            <h3>Add Mission Modal (example)</h3>
+            <h3>Add a Deadline modal</h3>
             <p>
-              This is how you would add a mission, this is one of many add
-              modals.
+              This is one of many add modals, as they all share similar UI/UX. In here, you can connect deadlines to subjects, 
+              add priorities, and dates and colors for your organization.
             </p>
           </div>
         </div>
@@ -335,3 +416,4 @@
     </div>
   </body>
 </html>
+
