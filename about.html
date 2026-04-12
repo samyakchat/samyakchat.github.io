@@ -8,18 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-:root {
+    :root {
       --bg: #F3EEEC;
       --surface: #ffffff;
       --border: #9CAAA5;
       --text: #3E3D37;
       --muted: #7C6E65;
---accent-blue: #2B6CBB;
+      --accent-blue: #2B6CBB;
       --accent-gold: #895F47;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
 
     body {
       margin: 0;
@@ -31,73 +30,53 @@
     a { color: inherit; text-decoration: none; }
 
     /* NAVBAR */
-      .navbar {
-        max-width: 1200px;
-        margin: 40px auto 0;
-        padding: 0 24px 16px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: end;
-        border-bottom: 1px solid var(--border);
-      }
+    .navbar {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 24px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+    }
 
-      .navbar-left a {
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-      .navbar-left a:hover {
-        color: var(--accent-blue);
-        transition: ease-in 0.2s;
-        transition: ease-out 0.3s;
-      }
+    .navbar-left a {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .navbar-left a:hover { color: var(--accent-blue); transition: 0.3s; }
 
-      .navbar-left a:active {
-        color: var(--accent-blue);
-      }
+    .navbar-right { display: flex; gap: 32px; }
 
-      .navbar-right {
-        display: flex;
-        gap: 32px;
-      }
+    .nav-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      position: relative;
+    }
 
-      .nav-btn {
-        background: none;
-        border: none;
-        padding: 0;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        color: var(--muted);
-        cursor: pointer;
-        position: relative;
-      }
+    .nav-btn.selected { color: var(--accent-blue); }
+    .nav-btn.selected::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-blue);
+    }
 
-      .nav-btn:hover {
-        color: var(--text);
-      }
-
-      .nav-btn.selected {
-        color: var(--accent-blue); /* Sets text to blue */
-      }
-
-      .nav-btn.selected::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 100%;
-        height: 2px;
-        background: var(--accent-blue); /* Sets underline to blue */
-      }
-    /* Main container */
+    /* CONTAINER */
     .container {
       max-width: 900px;
       margin: 80px auto;
       padding: 0 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
     }
 
     .text h1 {
@@ -105,64 +84,96 @@
       font-size: 2.8rem;
       margin-bottom: 20px;
       color: var(--text);
-    }
-
-    /* Skills */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .skill-pill {
-      padding: 10px 18px;
-      border-radius: 2px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      border: 1px solid var(--muted);
-      color: var(--muted);
-      background: var(--surface);
-      transition: all 0.3s ease;
-    }
-
-    .skill-pill:hover {
-      background: var(--accent-blue);
-      color: var(--bg);
-      border: 1px solid var(--accent-blue);
-      cursor: pointer;
-      transform: translateY(-3px);
-    }
-
-    /* Timeline */
-    .timeline {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .timeline h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      color: var(--accent-yellow);
       text-align: center;
     }
 
-    .timeline p {
-      font-size: 1rem;
+    /* INTRO PARAGRAPH */
+    .intro-text {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-size: 1.1rem;
       line-height: 1.6;
       color: var(--muted);
     }
 
-    .timeline a {
-      color: var(--accent-yellow);
-      text-decoration: underline;
+    /* TIMELINE STRUCTURE */
+    .timeline-container {
+      position: relative;
+      padding: 20px 0;
     }
 
-    /* Contact footer */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 31px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      opacity: 0.4;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 80px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 22px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent-blue);
+      z-index: 2;
+    }
+
+    .timeline-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px;
+      position: relative;
+      /* Hover features removed per request */
+    }
+
+    .timeline-box::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 14px;
+      width: 20px;
+      height: 2px;
+      background: var(--border);
+      opacity: 0.4;
+    }
+
+    .timeline-date {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--accent-blue);
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .timeline-content {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .timeline-content a {
+      color: var(--accent-blue);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
     .contact {
       max-width: 1200px;
       margin: 80px auto 40px;
@@ -176,32 +187,23 @@
       color: var(--muted);
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .contact img {
-      width: 20px;
-      height: 20px;
-      filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
-    }
+    .contact-item { display: flex; align-items: center; gap: 8px; }
+    .contact img { width: 20px; height: 20px; filter: grayscale(1); opacity: 0.7; }
 
     @media (max-width: 600px) {
-      .container { margin: 60px 16px; }
-      .timeline { padding: 24px; }
+      .container { margin: 40px 16px; }
+      .timeline-item { padding-left: 50px; }
+      .timeline-container::before { left: 15px; }
+      .timeline-dot { left: 6px; }
+      .timeline-box::before { width: 10px; left: -10px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
   <div class="navbar">
-    <div class="navbar-left">
-      <a href="index.html">Samyak Chatterjee</a>
-    </div>
+    <div class="navbar-left"><a href="index.html">Samyak Chatterjee</a></div>
     <div class="navbar-right">
       <button class="nav-btn" onclick="location.href='index.html'">Home</button>
       <button class="nav-btn" onclick="location.href='upcoming.html'">Upcoming</button>
@@ -210,41 +212,76 @@
     </div>
   </div>
 
-  <!-- Main content -->
   <div class="container">
     <div class="text">
-      <h1>About Me</h1>
+      <h1>My Journey</h1>
     </div>
 
-    <div class="skills">
-      <div class="skill-pill">Python</div>
-      <div class="skill-pill">React</div>
-      <div class="skill-pill">Figma</div>
-      <div class="skill-pill">Adobe Illustrator</div>
-      <div class="skill-pill">Premiere Pro</div>
-      <div class="skill-pill">JavaScript</div>
-      <div class="skill-pill">HTML</div>
-      <div class="skill-pill">CSS</div>
-      <div class="skill-pill">React Native</div>
-    </div>
-
-    <div class="timeline">
-      <h2>My Coding Journey</h2>
-      <p><strong style="color: var(--accent-blue)">2021 </strong>I started coding around 5th grade learning python <br>
-      <br><strong style="color: var(--accent-blue)">2023 </strong>- Python seemed to stick and in 7th grade I made <u><a href="project.html#project1">LifeLine</a></u>. Around this time I started to investigate into AI.<br>
-      <br><strong style="color: var(--accent-blue)">2023-2024 </strong>- I made a few smaller undocumented projects. An example is a mini help screen for my macbook, run with a python program it would let me control my mac with a touchscreen<br>
-      <br><strong style="color: var(--accent-blue)">2023 </strong>- Once python was strong I went to a coding competition, winning 3rd between multiple states<br>
-      <br><strong style="color: var(--accent-blue)">2024-2025 </strong>- I decided to compete in FBLA for coding and programming and made <u><a href="project.html#project3">Money-Mate</a></u>. This is where I learned how to incorporate AI.<br>
-      <br><strong style="color: var(--accent-blue)">2025 </strong>- I went to hackathons and recently just won 3rd at HackForsyth<br>
-      <br><strong style="color: var(--accent-blue)">2025 </strong>- My project started in the spring of 2025 called <u><a href="project.html#project2">Kitchen-Mate</a></u>, just finished.<br>
-      <br><strong style="color: var(--accent-blue)">2025 </strong>- I went on a path to explore App development. This is where I decided to learn SwiftUI and made <u><a href="upcoming.html#project1">Subhub</a></u><br>
-      <br><strong style="color: var(--accent-blue)">2025 </strong>- Continuing this Journey I've decided to make an app that helps not only me, but others. I learned React Native and how to manage servers with authentication. At this point, I am still working on <u><a href="upcoming.html#project2">Task Panda</a></u> with an AWS backend.<br>
-      <br><strong style="color: var(--accent-blue)">2026 </strong>- As a random idea to help me with future projects, I made <u><a href="upcoming.html#project2">Colordrift</a></u> to solidify my skills in React and website deployment.<br>
+    <p class="intro-text">
+      Welcome to my journey (about computer science) I've been exploring the world of software development since middle school, moving from simple scripts to what's about to be a full-stack application ready for production. Here is a timeline of the milestones and projects that have shaped my skills so far. Note, between these projects are many mini projects I used to learn along the way.
     </p>
+
+    <div class="timeline-container">
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2021</span>
+          <p class="timeline-content">I started coding around 5th grade learning Python.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2023</span>
+          <p class="timeline-content">Python seemed to stick and in 7th grade I made <u><a href="project.html#project1">LifeLine</a></u>. Around this time I started to investigate AI.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2023 - 2024</span>
+          <p class="timeline-content">I made a few smaller undocumented projects, such as a mini help screen for my MacBook that allowed touchscreen control via a Python program.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2023</span>
+          <p class="timeline-content">Once my Python skills were strong, I entered a coding competition and won 3rd place competing against multiple states.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2024 - 2025</span>
+          <p class="timeline-content">Competed in FBLA for coding and programming and created <u><a href="project.html#project3">Money-Mate</a></u>, where I first learned to incorporate AI.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">2025</span>
+          <p class="timeline-content">Attended various hackathons and won 3rd place at HackForsyth with me and my partners project  <a href="project.html#project2">"<u>Project Whisper</u>".</a> I also finished <u><a href="project.html#project2">Kitchen-Mate</a></u> and explored mobile development with SwiftUI to build <u><a href="upcoming.html#project1">Subhub</a></u>.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-box">
+          <span class="timeline-date">Present to 2026</span>
+          <p class="timeline-content">I went to FBLA RLC, winning 1st for <u><a href="project.html#project2">Astromath</a></u>. I am now currently expanding into full-stack mobile development with React Native and AWS for <u><a href="upcoming.html#project2">Task Panda</a></u>. To sharpen my web deployment skills, I also launched <u><a href="upcoming.html#project2">Colordrift</a></u>. This will not only help others, but simplify my UI process.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="contact">
     <div class="contact-item">
       <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
