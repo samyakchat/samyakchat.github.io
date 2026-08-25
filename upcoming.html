@@ -145,6 +145,8 @@
       color: var(--accent-blue);
     }
 
+    
+
     .project-section p {
       max-width: 760px;
       font-size: 1rem;
@@ -318,6 +320,20 @@
       filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
     }
 
+    .visitlink {
+      display: inline-flex;
+      width: fit-content;
+      background: var(--accent-blue);
+      border: 0.5px solid var(--bg);
+      border-radius: 2px;
+      padding: 8px 12px;
+      align-items: center;
+      gap: 6px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.85rem;
+      color: var(--bg);
+    }
+
     /* ======================
        RESPONSIVE
        ====================== */
@@ -357,19 +373,25 @@
       <img src="images/pandaimages/icon.png" alt="Task Panda" />
     </div>
 
+
+    <div class="visitlink">
+          <a href="https://taskpanda.app" target="_blank">Visit Website Preview</a>
+        </div>
+
     <div class="tech-section">
 
       <div class="tech-tags">
         <span class="tech-tag react">React Native</span>
-        <span class="tech-tag typescript">TypeScript</span>
         <span class="tech-tag ai">PostgreSQL</span>
         <span class="tech-tag python">AWS S3</span>
-        <span class="tech-tag python">Auth0</span>
-        <span class="tech-tag sql">SQL</span>
-        <span class="tech-tag ios">Kotlin (soon)</span>
-        <span class="tech-tag ios">Swift</span>
+        <span class="tech-tag python">Auth0/AWS Auth</span>
+        <span class="tech-tag sql">SQLite</span>
+        <span class="tech-tag ios">Swift and Kotlin</span>
+
       </div>
     </div>
+
+    
 
 
 
@@ -381,47 +403,73 @@
       <br /><br />
       Completing tasks is basic, but students need a structured way to complete
       their school life without burnout. We help you become more focused on what matters, and realize
-      what holds you back. Task Panda offers features such as Hanging
-      Deadlines, Schedule Automater, Ramble, and more features centered around
-      students.
+      what holds you back. Task Panda offers features such as Annoying Meter, Exam Reflection, Syllabus Planner, Ask Panda, and more features centered around
+      students, and helping them improve their academic life.
     </p>
 
     <div class="gallery-container">
       <div class="gallery-item">
-        <img src="images/pandaimages/1.jpeg" class="gallery-image" />
+        <img src="upcoming_images/home.PNG" class="gallery-image" />
         <div class="gallery-description">
-          <h3>Ideal Homescreen (TODO)</h3>
+          <h3>Simple Homescreen</h3>
           <p>
-            This is what you will see every day when completing tasks. You can
-            have color tags, and repeating tasks. The page comes in many views, including a KanBan board.
+            This is your today view, in the default mode. It can get complicated, but it'll never be hard to navigate. Modes include kanban, priority, and calendar.
           </p>
         </div>
       </div>
 
       <div class="gallery-item">
-        <img src="images/pandaimages/2.jpeg" class="gallery-image" />
+        <img src="upcoming_images/week.PNG" class="gallery-image" />
         <div class="gallery-description">
-          <h3>My Trail page</h3>
+          <h3>Weekly Calendar</h3>
           <p>
-            This is your page to check missions and deadlines, aka the neccesary, but not primary focus. Missions can
-            be instances from a social studies project to starting a non profit, the organization is in your hands.
-            Deadlines
-            hang over you as you browse.
+            To view upcoming, previous, or hanging exams and deadlines, you navigate here to have the same dynamic view but throughout your calendar.
           </p>
         </div>
       </div>
 
       <div class="gallery-item">
-        <img src="images/pandaimages/3.jpeg" class="gallery-image" />
+        <img src="upcoming_images/askpanda.PNG" class="gallery-image" />
         <div class="gallery-description">
-          <h3>Add a Deadline modal</h3>
+          <h3>Ask Panda</h3>
           <p>
-            This is one of many add modals, as they all share similar UI/UX. In here, you can connect deadlines to
-            subjects,
-            add priorities, and dates and colors for your organization.
+            Why add tasks when you can speak? Shake your phone, use the shortcut, or press the Ask Panda button and talk naturally. Your panda will interperet what you said
+            and create tasks, exams, and in other pages of the app, missions and schedules. 
           </p>
         </div>
       </div>
+
+      <div class="gallery-item">
+        <img src="upcoming_images/mission.PNG" class="gallery-image" />
+        <div class="gallery-description">
+          <h3>Missions</h3>
+          <p>
+            These can be anything you'd like. Projects, long assignments, extracurricular projects, whatever. As long as you have a goal, add<b>Steps</b>, with tasks and watch the planning happen for you.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="upcoming_images/completed.PNG" class="gallery-image" />
+        <div class="gallery-description">
+          <h3>Completed Page</h3>
+          <p>
+            You should always be able to see your progress, and be proud of yourself. As visible in the screenshot, completed tasks will always show tasks delegated from anywhere in the app.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="upcoming_images/pandapod.PNG" class="gallery-image" />
+        <div class="gallery-description">
+          <h3>Panda Pods</h3>
+          <p>
+            A good example of one of our student directed features, is Panda Pods. A pomodoro timer with live activites enabled and extra incentives inside the app that integrates data seamlessly with the rest of the app.
+          </p>
+        </div>
+      </div>
+
+      
     </div>
   </div>
 
