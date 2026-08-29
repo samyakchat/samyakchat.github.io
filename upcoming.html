@@ -113,7 +113,7 @@
 
     .project-section {
       max-width: 1200px;
-      margin: 120px auto 0;
+      margin: 1px auto 0;
       padding: 0 24px;
     }
 
@@ -124,14 +124,36 @@
       margin-bottom: 12px;
     }
 
+    .project-header-2 {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      margin-top: 100px;
+    }
+
     .project-header h1 {
       font-family: "Montserrat", sans-serif;
       font-size: 2.4rem;
       letter-spacing: -0.02em;
       margin: 0;
     }
+    .project-header-2 h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    
 
     .project-header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+    }
+
+    .project-header-2 img {
       width: 70px;
       height: 70px;
       border-radius: 16px;
@@ -250,6 +272,10 @@
        GALLERY
        ====================== */
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -306,6 +332,21 @@
       gap: 40px;
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    .select {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 22px;
+      width: fit-content;
+      background-color: white;
+      /* position: sticky; */
+      top: 20px;
+      
+      margin: 40px 0 80px auto;
+      padding: 8px;
+      border: 1px solid var(--border);
     }
 
     .contact-item {
@@ -367,8 +408,20 @@
   </div>
 
   <!-- TASK PANDA -->
+   <div class="project-section">
+    <div class="select">
+        <button class="nav-btn" onclick="location.href='#taskpanda'">
+          Task Panda
+          </button>
+        <button class="nav-btn" onclick="location.href='#commiter'">
+          Commiter
+          </button>
+    </div>
+   </div>
   <div class="project-section">
-    <div class="project-header">
+    
+   
+    <div class="project-header" id="taskpanda">
       <h1>Task Panda</h1>
       <img src="images/pandaimages/icon.png" alt="Task Panda" />
     </div>
@@ -472,6 +525,46 @@
       
     </div>
   </div>
+  <div class="project-section">
+    
+   
+    <div class="project-header-2" id="commiter">
+      <h1>Commiter</h1>
+    </div>
+
+
+    <div class="visitlink">
+          <a href="https://github.com/samyakchat" target="_blank">Git not posted yet</a>
+        </div>
+
+    <div class="tech-section">
+
+      <div class="tech-tags">
+        <span class="tech-tag react">Typescript</span>
+        <span class="tech-tag ai">Scikit Learn</span>
+        <span class="tech-tag python">Pydriller</span>
+        <span class="tech-tag python">Python</span>
+
+
+      </div>
+    </div>
+
+    
+
+
+
+    <p>
+      JIT defect prediction. The concept is simple, predict whether a commit (not a whole file) is likely to introduce a bug, 
+      using features like diff size, code churn, author's recent change frequency, time since last commit to that file, etc. 
+      <br /><br />
+      More focused on metadata, it's a machine learning model learning off of many other commits to recognize patterns and protect 
+      users' code. The way to use it is as a VS Code extension, where it would provide developers with feedback in their output console
+      telling them, "This commit isn't safe, or will break XYZ". It can also run efficently because it dosen't require an LLM in the background.
+    </p>
+
+  </div>
+
+  
 
   <!-- FOOTER -->
   <div class="social-links">
