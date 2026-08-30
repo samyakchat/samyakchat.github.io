@@ -361,6 +361,29 @@
               response.innerText = 'Directory not found. Try /projects or /about.';
             }
           }
+          else if (fullVal.includes('cd .')) {
+            response.innerText = "Already at base path";
+
+          }
+          else if (fullVal.startsWith('cd ')) {
+            const destination = fullVal.replace('cd ', '');
+            const pages = {
+              'home': 'index.html',
+              'upcoming': 'upcoming.html',
+              'projects': 'project.html',
+              'about': 'about.html'
+            };
+
+            if (pages[destination]) {
+              response.innerText = `Opening to ${destination}...`;
+              setTimeout(() => window.location.href = pages[destination], 500);
+            } else {
+              response.innerText = 'Directory not found. Try cd projects.';
+            }
+          }
+
+          
+          
           else if (fullVal === 'clear') {
             const lines = body.querySelectorAll('.terminal-line');
             lines.forEach(l => l.remove());
@@ -369,6 +392,18 @@
           }
           else if (fullVal === "dir") {
             response.innerText = "this isnt windows ";
+          }
+          else if (fullVal.includes('mkdir')) {
+            response.innerText = "can't (won't) create new file";
+
+          }
+          else if (fullVal.includes('cat ')) {
+            response.innerText = "i'd rather you use 'cd' or 'go to /'";
+
+          }
+          else if (fullVal.includes('cat')) {
+            response.innerText = "try cat upcoming";
+
           }
           else if (fullVal === "ls") {
             response.innerHTML = `home<br>
@@ -380,6 +415,7 @@
           else {
             response.innerText = "Command unknown. Type 'help' for a list of commands.";
           }
+
 
           body.insertBefore(response, input.parentElement);
           input.value = '';
