@@ -1,0 +1,72 @@
+/* Styles specific to index.html. */
+
+.social-links {
+  margin: auto auto 0 auto;
+  padding: 24px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centered Main Container */
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 16px auto;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.cta,
+.cta2 {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1.5px solid var(--muted);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  border-color: var(--text);
+  color: var(--bg);
+  background-color: var(--text);
+}
+
+.cta2:hover {
+  border-color: var(--accent-blue);
+  color: var(--bg);
+  background-color: var(--accent-blue);
+}

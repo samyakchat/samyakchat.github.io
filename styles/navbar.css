@@ -1,0 +1,103 @@
+.nav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Shared navigation, including existing page-specific variants. */
+
+body[data-page="index"] .navbar {
+  width: 100%;
+}
+
+.navbar-left a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body[data-page="about"] .navbar-left a:hover {
+  color: var(--accent-blue);
+  transition: 0.3s;
+}
+
+body[data-page="upcoming"] .navbar-left a:hover,
+body[data-page="project"] .navbar-left a:hover {
+  color: var(--accent-blue);
+  transition: ease-out 0.3s;
+}
+
+body[data-page="upcoming"] .navbar-left a:active,
+body[data-page="project"] .navbar-left a:active {
+  color: var(--accent-blue);
+}
+
+body[data-page="building"] .navbar-right {
+  align-items: center;
+}
+
+body[data-page="index"] .nav-btn,
+body[data-page="about"] .nav-btn,
+body[data-page="upcoming"] .nav-btn,
+body[data-page="project"] .nav-btn {
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+body[data-page="building"] .nav-btn {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body[data-page="upcoming"] .nav-btn:hover,
+body[data-page="project"] .nav-btn:hover,
+body[data-page="building"] .nav-btn:hover {
+  color: var(--text);
+}
+
+body[data-page="index"] .nav-btn.selected,
+body[data-page="about"] .nav-btn.selected,
+body[data-page="upcoming"] .nav-btn.selected,
+body[data-page="project"] .nav-btn.selected {
+  color: var(--accent-blue);
+}
+
+body[data-page="building"] .nav-btn.selected {
+  color: var(--text);
+  border-bottom: 2px solid var(--text);
+  padding-bottom: 2px;
+}
+
+body[data-page="index"] .nav-btn.selected::after,
+body[data-page="about"] .nav-btn.selected::after,
+body[data-page="upcoming"] .nav-btn.selected::after,
+body[data-page="project"] .nav-btn.selected::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-blue);
+}

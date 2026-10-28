@@ -1,0 +1,257 @@
+/* Styles specific to upcoming.html. */
+
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* ======================
+   PROJECT SECTIONS
+   ====================== */
+
+.project-section {
+  max-width: 1200px;
+  margin: 1px auto 0;
+  padding: 0 24px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.project-header-2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  margin-top: 100px;
+}
+
+.project-header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.project-header-2 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.project-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+}
+
+.project-header-2 img {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+}
+
+.github-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+}
+
+.project-section p {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* TECH SECTION (copied from project.html) */
+.tech-section {
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+
+.tech-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 2px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Relevant tech tag variants */
+.tech-tag.react {
+  background: #2b6cbb20;
+  border-color: #2b6cbb;
+  color: #2b6cbb;
+}
+
+.tech-tag.typescript {
+  background: #2b6cbb20;
+  border-color: #2b6cbb;
+  color: #2b6cbb;
+}
+
+.tech-tag.ai {
+  background: #05966920;
+  border-color: #059669;
+  color: #059669;
+}
+
+.tech-tag.python {
+  background: #c5303020;
+  border-color: #c53030;
+  color: #c53030;
+}
+
+.tech-tag.sql {
+  background: #d9770620;
+  border-color: #d97706;
+  color: #d97706;
+}
+
+.tech-tag.ios {
+  background: #7c3aed20;
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+/* ======================
+   GALLERY
+   ====================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.gallery-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-description {
+  padding: 16px;
+}
+
+.gallery-description h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.gallery-description p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ======================
+   FOOTER
+   ====================== */
+
+.contact {
+  max-width: 1200px;
+  margin: 120px auto 48px;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 40px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  width: fit-content;
+  background-color: white;
+  /* position: sticky; */
+  top: 20px;
+
+  margin: 40px 0 80px auto;
+  padding: 8px;
+  border: 1px solid var(--border);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(10%);
+}
+
+.visitlink {
+  display: inline-flex;
+  width: fit-content;
+  background: var(--accent-blue);
+  border: 0.5px solid var(--bg);
+  border-radius: 2px;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  color: var(--bg);
+}
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+
+@media (max-width: 900px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
+}

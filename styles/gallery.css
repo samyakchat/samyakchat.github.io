@@ -1,0 +1,24 @@
+/* Expand images beneath the project description without leaving the page. */
+.project-gallery {
+  margin-top: 16px;
+}
+
+.project-gallery > summary {
+  width: fit-content;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.project-gallery > summary:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.project-gallery[open] > summary {
+  margin-bottom: 16px;
+}
