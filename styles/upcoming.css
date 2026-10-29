@@ -205,19 +205,17 @@ html {
   color: var(--muted);
 }
 
-.select {
+.project-controls {
+  max-width: 1200px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 22px;
-  width: fit-content;
-  background-color: white;
-  /* position: sticky; */
-  top: 20px;
+  justify-content: flex-end;
+}
 
-  margin: 40px 0 80px auto;
-  padding: 8px;
-  border: 1px solid var(--border);
+#taskpanda,
+#jitter {
+  scroll-margin-top: 32px;
 }
 
 .contact-item {

@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="styles/shared.css">
   <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/project-dropdown.css">
   <link rel="stylesheet" href="styles/upcoming.css">
   <link rel="stylesheet" href="styles/gallery.css">
 </head>
@@ -20,17 +21,21 @@
   <!-- NAVBAR -->
   <script src="scripts/navbar.js"></script>
 
-  <!-- TASK PANDA -->
-   <div class="project-section">
-    <div class="select">
-        <button class="nav-btn" onclick="location.href='#taskpanda'">
-          Task Panda
-          </button>
-        <button class="nav-btn" onclick="location.href='#jitter'">
-          Jitter
-          </button>
+  <div class="project-controls">
+    <div class="projects-wrapper">
+      <button class="projects-button" id="projectsBtn" type="button" aria-expanded="false" aria-controls="projectsDropdown">
+        <ion-icon name="list-outline"></ion-icon>
+        Projects (2)
+      </button>
+      <div class="projects-dropdown" id="projectsDropdown">
+        <div class="projects-label">Upcoming Projects</div>
+        <div class="projects-list-items">
+          <a class="project-list-item" data-project="taskpanda" href="#taskpanda">Task Panda</a>
+          <a class="project-list-item" data-project="jitter" href="#jitter">Jitter</a>
+        </div>
+      </div>
     </div>
-   </div>
+  </div>
   <div class="project-section">
     
    
@@ -194,6 +199,7 @@
     <a href="mailto:samyakchat@gmail.com" class="social-btn"><ion-icon name="mail"></ion-icon></a>
   </div>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="scripts/project-dropdown.js"></script>
 </body>
 
 </html>

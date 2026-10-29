@@ -16,75 +16,33 @@
 
   <link rel="stylesheet" href="styles/shared.css">
   <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/project-dropdown.css">
   <link rel="stylesheet" href="styles/project.css">
 </head>
 
 <body data-page="project">
   <script src="scripts/navbar.js"></script>
 
-  <div class="search-filter-container">
+  <div class="project-controls">
     <div class="search-box">
       <ion-icon name="search-outline"></ion-icon>
       <input type="text" id="searchInput" placeholder="Search projects..." />
     </div>
-    <div class="filter-wrapper">
-      <button class="filter-button" id="filterBtn">
-        <ion-icon name="options-outline"></ion-icon>
-        Filter
-      </button>
-      <div class="filter-dropdown" id="filterDropdown">
-        <div class="filter-label">Technologies</div>
-        <div class="filter-options">
-          <label class="filter-option">
-            <input type="checkbox" value="react" />
-            <span>React</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="typescript" />
-            <span>TypeScript</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="python" />
-            <span>Python</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="swiftui" />
-            <span>SwiftUI</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="sql" />
-            <span>SQL</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="tkinter" />
-            <span>Tkinter</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="tailwind" />
-            <span>Tailwind CSS</span>
-          </label>
-          <label class="filter-option">
-            <input type="checkbox" value="htmljscss" />
-            <span>HTML, JS, CSS</span>
-          </label>
-        </div>
-      </div>
-    </div>
     <div class="projects-wrapper">
-      <button class="projects-button" id="projectsBtn">
+      <button class="projects-button" id="projectsBtn" type="button" aria-expanded="false" aria-controls="projectsDropdown">
         <ion-icon name="list-outline"></ion-icon>
         Projects (7)
       </button>
       <div class="projects-dropdown" id="projectsDropdown">
         <div class="projects-label"> Projects (new to old)</div>
         <div class="projects-list-items">
-          <div class="project-list-item" data-project="colordrift">Colordrift</div>
-          <div class="project-list-item" data-project="astromath">Astromath</div>
-          <div class="project-list-item" data-project="projectwhisper">Project Whisper</div>
-          <div class="project-list-item" data-project="kitchen-mate">Kitchen-mate</div>
-          <div class="project-list-item" data-project="subhub">SubHub</div>
-          <div class="project-list-item" data-project="money-mate">Money-Mate</div>
-          <div class="project-list-item" data-project="lifeline">LifeLine</div>
+          <a class="project-list-item" data-project="colordrift" href="#colordrift">Colordrift</a>
+          <a class="project-list-item" data-project="astromath" href="#astromath">Astromath</a>
+          <a class="project-list-item" data-project="projectwhisper" href="#projectwhisper">Project Whisper</a>
+          <a class="project-list-item" data-project="kitchen-mate" href="#kitchen-mate">Kitchen-mate</a>
+          <a class="project-list-item" data-project="subhub" href="#subhub">SubHub</a>
+          <a class="project-list-item" data-project="money-mate" href="#money-mate">Money-Mate</a>
+          <a class="project-list-item" data-project="lifeline" href="#lifeline">LifeLine</a>
         </div>
       </div>
     </div>
@@ -123,82 +81,8 @@
   </div>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
+  <script src="scripts/project-dropdown.js"></script>
   <script>
-    const searchInput = document.getElementById("searchInput");
-    const filterBtn = document.getElementById("filterBtn");
-    const filterDropdown = document.getElementById("filterDropdown");
-    const projectsBtn = document.getElementById("projectsBtn");
-    const projectsDropdown = document.getElementById("projectsDropdown");
-    const filterCheckboxes = document.querySelectorAll(".filter-option input[type='checkbox']");
-    const projectSections = document.querySelectorAll(".project-section");
-    const projectListItems = document.querySelectorAll(".project-list-item");
-
-    filterBtn.addEventListener("click", () => {
-      filterDropdown.classList.toggle("active");
-      projectsDropdown.classList.remove("active");
-    });
-
-    projectsBtn.addEventListener("click", () => {
-      projectsDropdown.classList.toggle("active");
-      filterDropdown.classList.remove("active");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".filter-wrapper")) {
-        filterDropdown.classList.remove("active");
-      }
-      if (!e.target.closest(".projects-wrapper")) {
-        projectsDropdown.classList.remove("active");
-      }
-    });
-
-    searchInput.addEventListener("input", filterProjects);
-
-    filterCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener("change", filterProjects);
-    });
-
-    function filterProjects() {
-      const searchTerm = searchInput.value.toLowerCase();
-      const selectedTechs = Array.from(filterCheckboxes)
-        .filter((cb) => cb.checked)
-        .map((cb) => cb.value);
-
-      projectSections.forEach((project) => {
-        const title = project.querySelector("h1").textContent.toLowerCase();
-        const description = project.querySelector("p").textContent.toLowerCase();
-        const projectTechs = project.dataset.tech.split(",");
-
-        const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-
-        const matchesFilters =
-          selectedTechs.length === 0 ||
-          selectedTechs.some((tech) => projectTechs.includes(tech.toLowerCase()));
-
-        const shouldShow = matchesSearch && matchesFilters;
-
-        project.style.display = shouldShow ? "flex" : "none";
-        const projectId = project.id;
-        const listItem = document.querySelector(
-          `.project-list-item[data-project="${projectId}"]`
-        );
-        if (listItem) {
-          listItem.classList.toggle("hidden", !shouldShow);
-        }
-      });
-    }
-
-    projectListItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const projectId = item.dataset.project;
-        const projectElement = document.getElementById(projectId);
-        if (projectElement && projectElement.style.display !== "none") {
-          projectElement.scrollIntoView({ behavior: "smooth" });
-          projectElement.style.animation = "pulse 0.5s ease";
-        }
-      });
-    });
-
     function openImageModal(imageSrc) {
       const modal = document.getElementById("imageModal");
       const modalImage = document.getElementById("modalImage");
