@@ -48,7 +48,7 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/acuity/ctui.PNG" class="gallery-image" />
+          <img src="images/acuity/ctui.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Caretaker Data Screen</h3>
             <p>Shows detailed reports over user data</p>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/ptui.PNG" class="gallery-image" />
+          <img src="images/acuity/ptui.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Patient homescreen</h3>
             <p>Simplistic UI for patients</p>
