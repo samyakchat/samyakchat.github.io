@@ -46,14 +46,14 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/whisper/intro.png" class="gallery-image" />
+          <img src="../images/whisper/intro.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Sign in</h3>
             <p>Here you would use your key to sign into the server.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/whisper/home.png" class="gallery-image" />
+          <img src="../images/whisper/home.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Project Page</h3>
             <p>

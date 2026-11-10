@@ -46,7 +46,7 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/homecropped.png" class="gallery-image" />
+          <img src="../images/homecropped.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Basic UI</h3>
             <p>
@@ -56,14 +56,14 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/profilecropped.png" class="gallery-image" />
+          <img src="../images/profilecropped.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Manage Profiles</h3>
             <p>Manage up to 3 profiles all kept locally with SQL.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/tellus.png" class="gallery-image" />
+          <img src="../images/tellus.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>AI integration</h3>
             <p>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/chatbot.png" class="gallery-image" />
+          <img src="../images/chatbot.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>ChatBot</h3>
             <p>

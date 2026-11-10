@@ -45,7 +45,7 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/alertss.png" class="gallery-image" />
+          <img src="../images/alertss.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Main UI</h3>
             <p>
@@ -55,21 +55,21 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/numberss.png" class="gallery-image" />
+          <img src="../images/numberss.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Contacts</h3>
             <p>You can contact up to 4 numbers with AlertAll.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/exmapleimage.png" class="gallery-image" />
+          <img src="../images/exmapleimage.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>In-Use</h3>
             <p>This is it being used for my Grandma</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/textmessage.png" class="gallery-image" />
+          <img src="../images/textmessage.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Example Receipt</h3>
             <p>

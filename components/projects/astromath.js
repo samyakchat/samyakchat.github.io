@@ -45,14 +45,14 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="design/astroMath.png" class="gallery-image" />
+          <img src="../design/astroMath.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Homescreen</h3>
             <p>Here it shows how you can use the website and to sign up.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="design/astromath2.png" class="gallery-image" />
+          <img src="../design/astromath2.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Course pages</h3>
             <p>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="design/astromath3.png" class="gallery-image" />
+          <img src="../design/astromath3.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Course listings</h3>
             <p>

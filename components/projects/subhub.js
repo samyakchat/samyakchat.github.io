@@ -3,7 +3,7 @@
   template.innerHTML = `<div class="project-section" id="subhub" data-tech="swiftui,sql">
       <div class="project-header">
         <h1>SubHub</h1>
-        <img src="images/subhublogo.png" alt="SubHub" />
+        <img src="../images/subhublogo.png" alt="SubHub" />
       </div>
 
       <div class="tech-section">
@@ -45,7 +45,7 @@
                 margin-top: 0;
               ">
           <div class="gallery-item">
-            <img src="images/subhub/subadd.png" class="gallery-image" />
+            <img src="../images/subhub/subadd.png" class="gallery-image" />
             <div class="gallery-description">
               <h3>Add Modal</h3>
               <p>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="gallery-item">
-            <img src="images/subhub/subhub.png" class="gallery-image" />
+            <img src="../images/subhub/subhub.png" class="gallery-image" />
             <div class="gallery-description">
               <h3>Main Screen</h3>
               <p>
@@ -66,7 +66,7 @@
           </div>
 
           <div class="gallery-item">
-            <img src="images/subhub/subedit.png" class="gallery-image" />
+            <img src="../images/subhub/subedit.png" class="gallery-image" />
             <div class="gallery-description">
               <h3>Edit Mode</h3>
               <p>Like in any IOS app, you can remove subscriptions</p>

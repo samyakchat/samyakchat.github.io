@@ -2,6 +2,7 @@
 (() => {
   const script = document.currentScript;
   const currentPage = document.body.dataset.page;
+  const base = currentPage === 'index' ? '' : '../';
   const links = currentPage === 'building'
     ? [['index', 'Main Portfolio'], ['building', 'Design']]
     : [['index', 'Home'], ['upcoming', 'Upcoming'], ['project', 'Projects'], ['about', 'About']];
@@ -10,14 +11,14 @@
   navbar.className = 'navbar';
   navbar.setAttribute('aria-label', 'Main navigation');
   navbar.innerHTML = `
-    <div class="navbar-left"><a href="index.html">Samyak Chatterjee</a></div>
+    <div class="navbar-left"><a href="${base}">Samyak Chatterjee</a></div>
     <div class="navbar-right"></div>
   `;
 
   const navigation = navbar.querySelector('.navbar-right');
   for (const [page, label] of links) {
     const link = document.createElement('a');
-    link.href = `${page}.html`;
+    link.href = page === 'index' ? base : `${base}${page}/`;
     link.className = 'nav-btn';
     if (page === currentPage) {
       link.classList.add('selected');

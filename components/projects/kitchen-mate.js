@@ -48,7 +48,7 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/home_screen.png" class="gallery-image" />
+          <img src="../images/home_screen.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Homescreen</h3>
             <p>
@@ -57,14 +57,14 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/inusekitchen.jpeg" class="gallery-image" />
+          <img src="../images/inusekitchen.jpeg" class="gallery-image" />
           <div class="gallery-description">
             <h3>Example of use</h3>
             <p>Currently in my kitchen, it's used everyday to make food.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/3Dmodels.png" class="gallery-image" />
+          <img src="../images/3Dmodels.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>3D-case model</h3>
             <p>
@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/masterchef.png" class="gallery-image" />
+          <img src="../images/masterchef.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Recipe Finder app</h3>
             <p>

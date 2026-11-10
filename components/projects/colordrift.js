@@ -48,14 +48,14 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/colordrift/home.png" class="gallery-image" />
+          <img src="../images/colordrift/home.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Homescreen</h3>
             <p>Here it spells out examples of using the website.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/colordrift/palettes.png" class="gallery-image" />
+          <img src="../images/colordrift/palettes.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>The Palettes</h3>
             <p>
@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/colordrift/saved.png" class="gallery-image" />
+          <img src="../images/colordrift/saved.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Saved Palettes</h3>
             <p>
@@ -75,14 +75,14 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/colordrift/colors1.png" class="gallery-image" />
+          <img src="../images/colordrift/colors1.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Color Page</h3>
             <p>When you search a color, there are many variations of such.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/colordrift/colors2.png" class="gallery-image" />
+          <img src="../images/colordrift/colors2.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Color Page (scrolled down)</h3>
             <p>
@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/colordrift/webview.png" class="gallery-image" />
+          <img src="../images/colordrift/webview.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Web View</h3>
             <p>

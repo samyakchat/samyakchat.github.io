@@ -48,14 +48,14 @@
 
       <div class="gallery-container hidden">
         <div class="gallery-item">
-          <img src="images/acuity/ctui.png" class="gallery-image" />
+          <img src="../images/acuity/ctui.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Caretaker Data Screen</h3>
             <p>Shows detailed reports over user data</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/dmo.PNG" class="gallery-image" />
+          <img src="../images/acuity/dmo.PNG" class="gallery-image" />
           <div class="gallery-description">
             <h3>Dig me out</h3>
             <p>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/pf.PNG" class="gallery-image" />
+          <img src="../images/acuity/pf.PNG" class="gallery-image" />
           <div class="gallery-description">
             <h3>Pattern Factory</h3>
             <p>
@@ -73,14 +73,14 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/ptui.png" class="gallery-image" />
+          <img src="../images/acuity/ptui.png" class="gallery-image" />
           <div class="gallery-description">
             <h3>Patient homescreen</h3>
             <p>Simplistic UI for patients</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/si.PNG" class="gallery-image" />
+          <img src="../images/acuity/si.PNG" class="gallery-image" />
           <div class="gallery-description">
             <h3>Seen it</h3>
             <p>
@@ -89,7 +89,7 @@
           </div>
         </div>
         <div class="gallery-item">
-          <img src="images/acuity/wg.PNG" class="gallery-image" />
+          <img src="../images/acuity/wg.PNG" class="gallery-image" />
           <div class="gallery-description">
             <h3>Word Garden</h3>
             <p>
