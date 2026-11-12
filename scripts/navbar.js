@@ -1,4 +1,3 @@
-// Shared navigation. Load this script where the navbar should appear.
 (() => {
   const script = document.currentScript;
   const currentPage = document.body.dataset.page;
@@ -12,10 +11,14 @@
   navbar.setAttribute('aria-label', 'Main navigation');
   navbar.innerHTML = `
     <div class="navbar-left"><a href="${base}">Samyak Chatterjee</a></div>
-    <div class="navbar-right"></div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar-right" id="primary-navigation"></div>
   `;
 
   const navigation = navbar.querySelector('.navbar-right');
+  const toggle = navbar.querySelector('.nav-toggle');
   for (const [page, label] of links) {
     const link = document.createElement('a');
     link.href = page === 'index' ? base : `${base}${page}/`;
@@ -33,6 +36,28 @@
     link.append(document.createTextNode(label));
     navigation.append(link);
   }
+
+  function setMenuOpen(open) {
+    navbar.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  }
+
+  toggle.addEventListener('click', () => {
+    setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  navigation.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenuOpen(false);
+  });
+  document.addEventListener('click', (event) => {
+    if (!navbar.contains(event.target)) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
 
   script.replaceWith(navbar);
 })();

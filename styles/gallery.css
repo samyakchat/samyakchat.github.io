@@ -1,24 +1,13 @@
-/* Expand images beneath the project description without leaving the page. */
-.project-gallery {
-  margin-top: 16px;
-}
-
-.project-gallery > summary {
-  width: fit-content;
-  padding: 10px 16px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.project-gallery > summary:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
-}
-
-.project-gallery[open] > summary {
-  margin-bottom: 16px;
-}
+.gallery-container { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.gallery-item { overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+.gallery-item:hover { border-color: var(--accent-blue); }
+.gallery-image { display: block; width: 100%; height: auto; }
+.gallery-description { padding: 13px; }
+.gallery-description h3 { margin: 0 0 5px; color: var(--text); font: 500 .85rem var(--display); }
+.gallery-description p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+.contact { width: min(100% - 48px, 1200px); margin: 65px auto 34px; padding: 20px 0; border-top: 1px solid var(--border); display: flex; gap: 30px; color: var(--muted); font-size: .88rem; }
+.contact-item { display: flex; align-items: center; gap: 8px; }
+.contact img { width: 16px; height: 16px; }
+.visitlink { display: inline-flex; width: fit-content; padding: 0; border: 0; background: transparent; color: var(--accent-blue); font: .75rem var(--display); }
+@media (max-width: 900px) { .gallery-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .gallery-container { grid-template-columns: 1fr; } .contact { width: calc(100% - 40px); flex-wrap: wrap; } }

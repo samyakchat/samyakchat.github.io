@@ -23,7 +23,7 @@
         </div>
         <div class="visitlink">
           <a href="https://astromatheducation.com" target="_blank">
-            Website down:(
+            Visit Website
           </a>
         </div>
       </div>

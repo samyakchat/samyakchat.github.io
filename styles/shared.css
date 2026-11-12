@@ -1,49 +1,55 @@
-/* Shared theme, base styles, and social links. */
-
+/* Shared editorial foundation for the portfolio. */
 :root {
-  --bg: #f3eeec;
-  --surface: #ffffff;
-  --border: #9caaa5;
-  --text: #3e3d37;
-  --muted: #7c6e65;
+  color-scheme: light;
+  --bg: #f5f2ed;
+  --surface: #fbfaf7;
+  --border: #d4cec3;
+  --text: #282923;
+  --muted: #6b6a61;
   --accent-gold: #895f47;
-  --accent-blue: #2B6CBB;
+  --accent-blue: #2b6cbb;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Open Sans', Arial, sans-serif;
+  --display: 'Montserrat', Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f3eeec, #f8f4f0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
   color: var(--text);
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+img { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+::selection { color: var(--bg); background: var(--accent-blue); }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 4px;
 }
 
 .social-links {
-  width: 100%;
-  max-width: 1200px;
-  margin: 60px auto 48px auto;
-  padding: 24px;
+  width: min(100% - 48px, 1200px);
+  margin: auto auto 0;
+  padding: 22px 0 30px;
   border-top: 1px solid var(--border);
   display: flex;
-  justify-content: center;
-  gap: 32px;
+  justify-content: flex-end;
+  gap: 28px;
 }
+.social-btn { font-size: 1.45rem; color: var(--muted); transition: color .2s ease; }
+.social-btn:hover { color: var(--accent-blue); }
 
-.social-btn {
-  font-size: 1.5rem;
-  color: var(--muted);
-  transition: color 0.3s ease, transform 0.2s ease;
+@media (max-width: 600px) {
+  .social-links { width: calc(100% - 40px); justify-content: flex-start; }
 }
-
-.social-btn:hover {
-  color: var(--accent-blue);
-  transform: translateY(-2px);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
